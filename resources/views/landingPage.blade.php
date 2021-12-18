@@ -130,12 +130,16 @@
                 relative
                 overflow-hidden
                 rounded-lg
+                w-full
+                h-[10rem]
             ">
                     <img src="{{ asset($product->coverPath . $product->cover) }}" alt="{{ $product->name }}" class="
                     w-full
                     group-hover:brightness-75
                     transition-all
                     ease-in-out
+                    h-full
+                    object-contain
                 " />
                     <div class="
                     flex
