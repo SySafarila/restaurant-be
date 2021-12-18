@@ -132,6 +132,7 @@
                 rounded-lg
                 w-full
                 h-[10rem]
+                xl:h-[15rem]
             ">
                     <img src="{{ asset($product->coverPath . $product->cover) }}" alt="{{ $product->name }}" class="
                     w-full
