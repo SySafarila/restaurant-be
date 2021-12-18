@@ -49,10 +49,13 @@
 </head>
 
 <body class="antialiased font-['Merienda'] text-gray-700 tap-highlight-transparent">
-    @include('components.navbar')
-    @include('components.sidebar')
+    {{-- @include('components.navbar') --}}
+    <x-navbar />
+    {{-- @include('components.sidebar') --}}
+    <x-sidebar />
     @yield('content')
-    @include('components.footer')
+    {{-- @include('components.footer') --}}
+    <x-footer />
 </body>
 
 <script>
