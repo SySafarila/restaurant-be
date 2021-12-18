@@ -232,7 +232,7 @@
       }
     });
   </script>
-  {{-- <script>
+  <script>
     // handle not found images
     let imgs = document.querySelectorAll('img');
     imgs.forEach((img, index) => {
@@ -240,5 +240,5 @@
             img.src = "/images/404.png"
         })
     })
-</script> --}}
+</script>
 @endsection
