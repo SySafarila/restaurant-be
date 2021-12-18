@@ -10,4 +10,9 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function FunctionName()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
