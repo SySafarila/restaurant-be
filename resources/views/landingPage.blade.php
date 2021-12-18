@@ -99,7 +99,7 @@
     </div>
     @foreach ($categories as $category)
     <div id="{{ $category->name }}">
-        <h2 class="font-['Fredericka_the_Great'] text-5xl">{{ $category->name }}'s</h2>
+        <h2 class="font-['Fredericka_the_Great'] text-5xl capitalize">{{ $category->name }}'s</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 my-5">
             @foreach ($category->products as $product)
             <a href="{{ route('product.show', $product) }}" class="
