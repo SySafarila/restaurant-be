@@ -19,21 +19,31 @@
 
 @section('content')
 <main class="mt-[63px] max-w-[1440px] w-full mx-auto p-5">
-    <div class="relative overflow-hidden mb-5" id="splide">
+    <div class="relative overflow-hidden mb-5 group rounded-lg" id="splide">
         <div class="splide__arrows hidden lg:block">
             <button class="
-                    splide__arrow splide__arrow--prev
-                    bg-white
+                    absolute top-[50%] z-10 rounded-full -translate-x-[200%] group-hover:translate-x-0 splide__arrow--prev
+                    bg-white/80
                     material-icons
-                    group-hover:translate-x-0
+                    transform
+                    translate-y-[-50%]
+                    transition-transform
+                    ease-in-out
+                    h-[40px]
+                    w-[40px]
                 ">
                 chevron_left
             </button>
             <button class="
-                    splide__arrow splide__arrow--next
-                    bg-white
+                    absolute top-[50%] z-10 rounded-full translate-x-[200%] group-hover:translate-x-0 splide__arrow--next
+                    bg-white/80
                     material-icons
-                    group-hover:translate-x-0
+                    transform
+                    translate-y-[-50%]
+                    transition-transform
+                    ease-in-out
+                    h-[40px]
+                    w-[40px]
                 ">
                 chevron_right
             </button>
@@ -46,7 +56,7 @@
                             h-[10rem]
                             lg:h-[20rem]
                             bg-gray-300
-                            rounded-lg
+
                             relative
                             overflow-hidden
                         ">
@@ -60,7 +70,7 @@
                             h-[10rem]
                             lg:h-[20rem]
                             bg-gray-300
-                            rounded-lg
+
                             relative
                             overflow-hidden
                         ">
@@ -74,7 +84,7 @@
                             h-[10rem]
                             lg:h-[20rem]
                             bg-gray-300
-                            rounded-lg
+
                             relative
                             overflow-hidden
                         ">
@@ -1304,7 +1314,7 @@
 <script>
     new Splide("#splide", {
       // arrows: false,
-      gap: 20,
+      gap: 0,
       pagination: true,
       autoplay: true,
       pauseOnHover: true,
