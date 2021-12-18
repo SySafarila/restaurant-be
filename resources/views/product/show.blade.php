@@ -29,7 +29,7 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide rounded-lg overflow-hidden">
-                            <img src="https://source.unsplash.com/random/200x200?sig=1" class="
+                            <img src="{{ $product->cover }}" class="
                     w-full
                     hover:scale-[1.3]
                     transition-transform
@@ -67,16 +67,16 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide">
-                            <img src="https://source.unsplash.com/random/200x200?sig=1" />
+                            <img src="{{ $product->cover }}" style="height: 100%;width: 100%;object-fit: contain;" />
                         </li>
                         <li class="splide__slide">
-                            <img src="https://source.unsplash.com/random/200x200?sig=2" />
+                            <img src="https://source.unsplash.com/random/200x200?sig=2" style="height: 100%;width: 100%;object-fit: contain;" />
                         </li>
                         <li class="splide__slide">
-                            <img src="https://source.unsplash.com/random/200x200?sig=3" />
+                            <img src="https://source.unsplash.com/random/200x200?sig=3" style="height: 100%;width: 100%;object-fit: contain;" />
                         </li>
                         <li class="splide__slide">
-                            <img src="https://source.unsplash.com/random/200x200?sig=4" />
+                            <img src="https://source.unsplash.com/random/200x200?sig=4" style="height: 100%;width: 100%;object-fit: contain;" />
                         </li>
                     </ul>
                 </div>
@@ -85,37 +85,13 @@
         <div class="lg:col-span-2">
             <div class="border-b pb-3">
                 <h1 class="font-bold text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Molestiae, accusantium.
+                    {{$product->name}}
                 </h1>
-                <span class="text-sky-500 text-2xl">Rp20.000</span>
+                <span class="text-sky-500 text-2xl">Rp{{ number_format($product->price,0 ,0, ',') }}</span>
             </div>
             <div class="flex flex-col gap-3 pt-3">
                 <h2 class="font-['Fredericka_the_Great'] text-3xl">Detail</h2>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Doloremque magnam reprehenderit, facilis, voluptates quas, nostrum
-                    ipsa quos quasi est fugiat cumque. Fuga corrupti omnis
-                    necessitatibus laudantium veritatis ex labore id?
-                </p>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Doloremque magnam reprehenderit, facilis, voluptates quas, nostrum
-                    ipsa quos quasi est fugiat cumque. Fuga corrupti omnis
-                    necessitatibus laudantium veritatis ex labore id?
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Doloribus perferendis suscipit soluta veniam, pariatur sed nihil
-                    consequuntur necessitatibus fugit ut doloremque facere. Eos
-                    deserunt excepturi nostrum minus mollitia culpa voluptatum?
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                    neque laudantium maxime nulla minus. Eveniet libero ut a, sequi
-                    facere repellendus repudiandae, doloremque nesciunt corporis illo
-                    totam distinctio soluta atque!
-                </p>
+                {{ $product->description }}
             </div>
         </div>
         <div class="border rounded-lg p-3 flex flex-col gap-y-5 h-min">
@@ -259,4 +235,13 @@
       }
     });
   </script>
+  <script>
+    // handle not found images
+    let imgs = document.querySelectorAll('img');
+    imgs.forEach((img, index) => {
+        img.addEventListener('error', () => {
+            img.src = "/images/404.png"
+        })
+    })
+</script>
 @endsection
