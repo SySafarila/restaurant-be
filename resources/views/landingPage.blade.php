@@ -185,7 +185,7 @@
     let imgs = document.querySelectorAll('img');
     imgs.forEach((img, index) => {
         img.addEventListener('error', () => {
-            img.src = `https://source.unsplash.com/random/200x200?sig=${index}`
+            img.src = "/images/404.png"
         })
     })
 </script>
