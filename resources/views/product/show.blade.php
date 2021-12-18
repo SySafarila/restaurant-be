@@ -141,8 +141,8 @@
         <div class="lg:col-span-3">
             <h3 class="font-['Fredericka_the_Great'] text-3xl">Review's</h3>
             <div class="flex flex-col gap-5 py-5">
-                <div class="flex flex-col lg:flex-row gap-y-2">
-                    <div class="flex items-center lg:w-[30rem] gap-x-3">
+                <div class="flex flex-col lg:flex-row gap-y-2 gap-x-5">
+                    <div class="flex items-start shrink-0 gap-x-3">
                         <img src="https://source.unsplash.com/random/50x50?sig=1" alt="x"
                             class="w-[50px] rounded-full" />
                         <div class="flex flex-col">
@@ -150,15 +150,15 @@
                             <span class="opacity-80 text-sm">Today</span>
                         </div>
                     </div>
-                    <p>
+                    <p class="xl:w-1/2">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         Reiciendis adipisci harum odio vero qui commodi aspernatur
                         labore, iste tempore aliquid, cupiditate enim consectetur facere
                         rem alias ducimus debitis excepturi tempora.
                     </p>
                 </div>
-                <div class="flex flex-col lg:flex-row gap-y-2">
-                    <div class="flex items-center lg:w-[30rem] gap-x-3">
+                <div class="flex flex-col lg:flex-row gap-y-2 gap-x-5">
+                    <div class="flex items-start shrink-0 gap-x-3">
                         <img src="https://source.unsplash.com/random/50x50?sig=1" alt="x"
                             class="w-[50px] rounded-full" />
                         <div class="flex flex-col">
@@ -166,7 +166,7 @@
                             <span class="opacity-80 text-sm">Today</span>
                         </div>
                     </div>
-                    <p>
+                    <p class="xl:w-1/2">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         Reiciendis adipisci harum odio vero qui commodi aspernatur
                         labore, iste tempore aliquid, cupiditate enim consectetur facere
