@@ -13,6 +13,17 @@
     .splide__pagination .splide__pagination__page.is-active {
         background-color: white;
     }
+
+    .splide__pagination {
+        justify-content: flex-start;
+    }
+
+    /* Large devices (desktops, 992px and up) */
+    @media (min-width: 992px) {
+        .splide__pagination {
+            justify-content: center;
+        }
+    }
 </style>
 <!-- splide js : end -->
 @endsection
