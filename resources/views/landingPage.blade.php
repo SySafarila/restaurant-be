@@ -1313,7 +1313,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.9/dist/js/splide.min.js"></script>
 <script>
     new Splide("#splide", {
-      // arrows: false,
+      type: 'loop',
       gap: 0,
       pagination: true,
       autoplay: true,
