@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->string('cover');
+            $table->string('coverPath');
             $table->double('price', 10, null);
             $table->integer('quantity');
             $table->integer('discount')->nullable();
