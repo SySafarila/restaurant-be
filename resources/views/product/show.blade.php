@@ -37,7 +37,7 @@
 @endsection
 
 @section('content')
-<main class="mt-[63px] max-w-[1440px] w-full mx-auto p-5">
+<main class="mt-[63px] max-w-[1440px] w-full mx-auto p-5" style="min-height: calc(100vh - 63px - 61px);">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-5 lg:gap-10">
         <div id="images" class="flex flex-col gap-3">
             <div class="splide" id="main-slider">

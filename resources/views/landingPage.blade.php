@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-<main class="mt-[63px] max-w-[1440px] w-full mx-auto p-5">
+<main class="mt-[63px] max-w-[1440px] w-full mx-auto p-5" style="min-height: calc(100vh - 63px - 61px);">
     <div class="relative overflow-hidden mb-5 group rounded-lg" id="splide">
         <div class="splide__arrows hidden lg:block">
             <button class="
