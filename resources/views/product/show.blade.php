@@ -28,36 +28,36 @@
             <div class="splide" id="main-slider">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide rounded-lg overflow-hidden">
+                        <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
                             <img src="{{ $product->cover }}" class="
-                    w-full
+                    w-full h-full
                     hover:scale-[1.3]
                     transition-transform
-                    ease-in-out
+                    ease-in-out object-contain
                   " />
                         </li>
-                        <li class="splide__slide rounded-lg overflow-hidden">
+                        <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
                             <img src="https://source.unsplash.com/random/200x200?sig=2" class="
-                    w-full
+                    w-full h-full
                     hover:scale-[1.3]
                     transition-transform
-                    ease-in-out
+                    ease-in-out object-contain
                   " />
                         </li>
-                        <li class="splide__slide rounded-lg overflow-hidden">
+                        <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
                             <img src="https://source.unsplash.com/random/200x200?sig=3" class="
-                    w-full
+                    w-full h-full
                     hover:scale-[1.3]
                     transition-transform
-                    ease-in-out
+                    ease-in-out object-contain
                   " />
                         </li>
-                        <li class="splide__slide rounded-lg overflow-hidden">
+                        <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
                             <img src="https://source.unsplash.com/random/200x200?sig=4" class="
-                    w-full
+                    w-full h-full
                     hover:scale-[1.3]
                     transition-transform
-                    ease-in-out
+                    ease-in-out object-contain
                   " />
                         </li>
                     </ul>
