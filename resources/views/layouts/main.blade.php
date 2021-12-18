@@ -36,6 +36,9 @@
 
     <!-- custom style : start -->
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         .tap-highlight-transparent {
             -webkit-tap-highlight-color: transparent;
         }

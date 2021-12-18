@@ -49,7 +49,7 @@
                     <a href="#logout" class="px-4 hover:text-sky-500">Drink's</a>
                     <a href="#other" class="px-4 hover:text-sky-500">Other's</a> --}}
                     @foreach ($gCategories as $category)
-                        <a href="#other" class="capitalize px-4 hover:text-sky-500">{{ $category->name }}'s</a>
+                        <a href="#{{ $category->name }}" class="capitalize px-4 hover:text-sky-500">{{ $category->name }}'s</a>
                     @endforeach
                 </div>
             </li>
