@@ -16,7 +16,9 @@ class LandingPageController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $categories = Category::with('products')->get();
+        $categories = Category::with(['products' => function($query) {
+            $query->inRandomOrder()->limit(8);
+        }])->get();
 
         return view('landingPage', compact('categories'));
     }
