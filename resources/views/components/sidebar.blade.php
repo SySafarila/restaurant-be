@@ -21,7 +21,7 @@
     style="height: calc(100% - 63px)"
     id="sidebar"
 >
-    <ul class="flex gap-y-3 flex-col lg:flex-row">
+    <ul class="flex gap-y-5 flex-col lg:flex-row">
         <li class="flex items-center gap-x-2 dropdown relative">
             <a
                 href="#"
@@ -38,16 +38,17 @@
             </a>
             <div
                 class="
-                    dropdown-items
-                    hidden
-                    absolute
-                    top-[2.5rem]
-                    right-0
-                    bg-white
-                    border
-                    rounded-lg
-                    py-2
-                    min-w-[7rem]
+                dropdown-items
+                hidden
+                absolute
+                top-[2.4rem]
+                right-0
+                bg-white
+                border
+                rounded-lg
+                w-full
+                min-w-[7rem]
+                flex flex-col gap-y-3 py-4
                 "
             >
                 <a href="#profile" class="px-4 hover:text-sky-500">Profile</a>

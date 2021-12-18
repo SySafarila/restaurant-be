@@ -34,16 +34,16 @@
                     <!-- <div class="w-[24px] h-[24px] bg-gray-200 rounded-full"></div> -->
                 </a>
                 <div class="
-                        dropdown-items
-                        hidden
-                        absolute
-                        top-[2.5rem]
-                        right-0
-                        bg-white
-                        border
-                        rounded-lg
-                        py-2
-                        min-w-[7rem]
+                dropdown-items
+                hidden
+                absolute
+                top-[2.5rem]
+                right-0
+                bg-white
+                border
+                rounded-lg
+                min-w-[7rem]
+                flex flex-col gap-y-3 py-4
                     ">
                     {{-- <a href="#profile" class="px-4 hover:text-sky-500">Food's</a>
                     <a href="#logout" class="px-4 hover:text-sky-500">Drink's</a>
@@ -97,16 +97,16 @@
                         <div class="w-[24px] h-[24px] bg-gray-200 rounded-full"></div>
                     </a>
                     <div class="
-                            dropdown-items
-                            hidden
-                            absolute
-                            top-[2.5rem]
-                            right-0
-                            bg-white
-                            border
-                            rounded-lg
-                            py-2
-                            min-w-[7rem]
+                    dropdown-items
+                hidden
+                absolute
+                top-[2.5rem]
+                right-0
+                bg-white
+                border
+                rounded-lg
+                min-w-[7rem]
+                flex flex-col gap-y-3 py-4
                         ">
                         <a href="#profile" class="px-4 hover:text-sky-500">Profile</a>
                         <a href="#logout" class="px-4 hover:text-sky-500">Logout</a>
