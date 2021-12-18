@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', LandingPageController::class)->name('index');
 Route::get('/products/{product}', [ProductsController::class, 'show'])->name('product.show');
+Route::get('/categories/{category:name}', [CategoriesController::class, 'show'])->name('categories.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

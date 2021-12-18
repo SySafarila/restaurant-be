@@ -56,8 +56,8 @@
             </div>
         </li>
         @foreach ($gCategories as $category)
-            <li class="hover:text-sky-500">
-                <a href="#{{ $category->name }}">{{ $category->name }}</a>
+            <li class="hover:text-sky-500 capitalize">
+                <a href="{{ route('categories.show', $category) }}">{{ $category->name }}'s</a>
             </li>
         @endforeach
         <li class="hover:text-sky-500">Menu 1</li>
