@@ -764,6 +764,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   -ms-scroll-chaining: none;
       overscroll-behavior: contain;
 }
+.whitespace-pre-line {
+  white-space: pre-line;
+}
 .rounded-lg {
   border-radius: 0.5rem;
 }

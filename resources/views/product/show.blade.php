@@ -88,7 +88,7 @@
             </div>
             <div class="flex flex-col gap-3 pt-3">
                 <h2 class="font-['Fredericka_the_Great'] text-3xl">Detail</h2>
-                {{ $product->description }}
+                <p class="whitespace-pre-line">{{ $product->description }}</p>
             </div>
         </div>
         <div class="border rounded-lg p-3 flex flex-col gap-y-5 h-min">
