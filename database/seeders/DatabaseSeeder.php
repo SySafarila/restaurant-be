@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleSyncPermissions::class,
             UserSeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }
