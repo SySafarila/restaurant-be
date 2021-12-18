@@ -12,7 +12,7 @@
             <button class="material-icons-round lg:hidden" id="menu">
                 menu
             </button>
-            <a href="./index.html" class="
+            <a href="{{ route('index') }}" class="
                     text-sky-500
                     hover:text-sky-600
                     font-['Fredericka_the_Great']
@@ -29,7 +29,8 @@
                     ml-1
                     hidden
                 ">
-                <a href="#" class="flex items-center gap-x-2 dropdown-trigger"><span class="hover:text-sky-500">Categories</span>
+                <a href="#" class="flex items-center gap-x-2 dropdown-trigger"><span
+                        class="hover:text-sky-500">Categories</span>
                     <!-- <div class="w-[24px] h-[24px] bg-gray-200 rounded-full"></div> -->
                 </a>
                 <div class="
@@ -88,7 +89,8 @@
                         dropdown
                         relative
                     ">
-                    <a href="#" class="flex items-center gap-x-2 dropdown-trigger"><span class="hover:text-sky-500">Syahrul</span>
+                    <a href="#" class="flex items-center gap-x-2 dropdown-trigger"><span
+                            class="hover:text-sky-500">Syahrul</span>
                         <div class="w-[24px] h-[24px] bg-gray-200 rounded-full"></div>
                     </a>
                     <div class="

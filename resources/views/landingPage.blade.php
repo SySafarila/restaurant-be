@@ -98,7 +98,7 @@
     <div id="foods">
         <h2 class="font-['Fredericka_the_Great'] text-5xl">Food's</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 my-5">
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -158,7 +158,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -218,7 +218,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -277,126 +277,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
-                    group
-                    flex flex-col
-                    gap-y-2
-                    border border-transparent
-                    hover:border-gray-200
-                    transition-colors
-                    ease-in-out
-                    rounded-lg
-                ">
-                <div class="
-                        group-hover:scale-95
-                        transition-all
-                        ease-in-out
-                        relative
-                        overflow-hidden
-                        rounded-lg
-                    ">
-                    <img src="https://source.unsplash.com/random/200x200?sig=1" class="
-                            w-full
-                            group-hover:brightness-75
-                            transition-all
-                            ease-in-out
-                        " />
-                    <div class="
-                            flex
-                            items-center
-                            bg-sky-500
-                            text-white
-                            w-fit
-                            absolute
-                            top-0
-                            left-0
-                            p-2
-                            rounded-br
-                            gap-x-1
-                            hidden
-                        ">
-                        <span class="material-icons-round text-sm">discount</span>
-                        <span class="text-sm">5%</span>
-                    </div>
-                </div>
-                <h3 class="
-                        group-hover:text-sky-500
-                        transition-all
-                        ease-in-out
-                        px-2
-                    ">
-                    Lorem, ipsum dolor.
-                </h3>
-                <span class="
-                        font-bold
-                        px-2
-                        pb-2
-                        text-sky-500
-                        group-hover:text-current
-                        transition-all
-                        ease-in-out
-                    ">Rp200.000</span>
-            </a>
-            <a href="./show.html" class="
-                    group
-                    flex flex-col
-                    gap-y-2
-                    border border-transparent
-                    hover:border-gray-200
-                    transition-colors
-                    ease-in-out
-                    rounded-lg
-                ">
-                <div class="
-                        group-hover:scale-95
-                        transition-all
-                        ease-in-out
-                        relative
-                        overflow-hidden
-                        rounded-lg
-                    ">
-                    <img src="https://source.unsplash.com/random/200x200?sig=1" class="
-                            w-full
-                            group-hover:brightness-75
-                            transition-all
-                            ease-in-out
-                        " />
-                    <div class="
-                            flex
-                            items-center
-                            bg-sky-500
-                            text-white
-                            w-fit
-                            absolute
-                            top-0
-                            left-0
-                            p-2
-                            rounded-br
-                            gap-x-1
-                        ">
-                        <span class="material-icons-round text-sm">discount</span>
-                        <span class="text-sm">5%</span>
-                    </div>
-                </div>
-                <h3 class="
-                        group-hover:text-sky-500
-                        transition-all
-                        ease-in-out
-                        px-2
-                    ">
-                    Lorem, ipsum dolor.
-                </h3>
-                <span class="
-                        font-bold
-                        px-2
-                        pb-2
-                        text-sky-500
-                        group-hover:text-current
-                        transition-all
-                        ease-in-out
-                    ">Rp200.000</span>
-            </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -456,7 +337,126 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
+                    group
+                    flex flex-col
+                    gap-y-2
+                    border border-transparent
+                    hover:border-gray-200
+                    transition-colors
+                    ease-in-out
+                    rounded-lg
+                ">
+                <div class="
+                        group-hover:scale-95
+                        transition-all
+                        ease-in-out
+                        relative
+                        overflow-hidden
+                        rounded-lg
+                    ">
+                    <img src="https://source.unsplash.com/random/200x200?sig=1" class="
+                            w-full
+                            group-hover:brightness-75
+                            transition-all
+                            ease-in-out
+                        " />
+                    <div class="
+                            flex
+                            items-center
+                            bg-sky-500
+                            text-white
+                            w-fit
+                            absolute
+                            top-0
+                            left-0
+                            p-2
+                            rounded-br
+                            gap-x-1
+                        ">
+                        <span class="material-icons-round text-sm">discount</span>
+                        <span class="text-sm">5%</span>
+                    </div>
+                </div>
+                <h3 class="
+                        group-hover:text-sky-500
+                        transition-all
+                        ease-in-out
+                        px-2
+                    ">
+                    Lorem, ipsum dolor.
+                </h3>
+                <span class="
+                        font-bold
+                        px-2
+                        pb-2
+                        text-sky-500
+                        group-hover:text-current
+                        transition-all
+                        ease-in-out
+                    ">Rp200.000</span>
+            </a>
+            <a href="{{ route('product.show') }}" class="
+                    group
+                    flex flex-col
+                    gap-y-2
+                    border border-transparent
+                    hover:border-gray-200
+                    transition-colors
+                    ease-in-out
+                    rounded-lg
+                ">
+                <div class="
+                        group-hover:scale-95
+                        transition-all
+                        ease-in-out
+                        relative
+                        overflow-hidden
+                        rounded-lg
+                    ">
+                    <img src="https://source.unsplash.com/random/200x200?sig=1" class="
+                            w-full
+                            group-hover:brightness-75
+                            transition-all
+                            ease-in-out
+                        " />
+                    <div class="
+                            flex
+                            items-center
+                            bg-sky-500
+                            text-white
+                            w-fit
+                            absolute
+                            top-0
+                            left-0
+                            p-2
+                            rounded-br
+                            gap-x-1
+                            hidden
+                        ">
+                        <span class="material-icons-round text-sm">discount</span>
+                        <span class="text-sm">5%</span>
+                    </div>
+                </div>
+                <h3 class="
+                        group-hover:text-sky-500
+                        transition-all
+                        ease-in-out
+                        px-2
+                    ">
+                    Lorem, ipsum dolor.
+                </h3>
+                <span class="
+                        font-bold
+                        px-2
+                        pb-2
+                        text-sky-500
+                        group-hover:text-current
+                        transition-all
+                        ease-in-out
+                    ">Rp200.000</span>
+            </a>
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -521,7 +521,7 @@
     <div id="drinks">
         <h2 class="font-['Fredericka_the_Great'] text-5xl">Drink's</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 my-5">
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -581,7 +581,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -641,7 +641,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -701,7 +701,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -761,7 +761,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -821,7 +821,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -880,7 +880,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -944,7 +944,7 @@
     <div id="others">
         <h2 class="font-['Fredericka_the_Great'] text-5xl">Other's</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 my-5">
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -1004,7 +1004,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -1064,7 +1064,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -1124,7 +1124,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -1183,7 +1183,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
@@ -1243,7 +1243,7 @@
                         ease-in-out
                     ">Rp200.000</span>
             </a>
-            <a href="./show.html" class="
+            <a href="{{ route('product.show') }}" class="
                     group
                     flex flex-col
                     gap-y-2
