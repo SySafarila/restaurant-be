@@ -44,37 +44,23 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
-                            <img src="{{ $product->cover }}" class="
+                            <img src="{{ asset($product->coverPath . $product->cover) }}" class="
                     w-full h-full
                     hover:scale-[1.3]
                     transition-transform
                     ease-in-out object-contain
                   " />
                         </li>
+                        @foreach ($product->images as $image)
                         <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
-                            <img src="https://source.unsplash.com/random/200x200?sig=2" class="
+                            <img src="{{ asset($image->path . $image->name) }}" class="
                     w-full h-full
                     hover:scale-[1.3]
                     transition-transform
                     ease-in-out object-contain
                   " />
                         </li>
-                        <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
-                            <img src="https://source.unsplash.com/random/200x200?sig=3" class="
-                    w-full h-full
-                    hover:scale-[1.3]
-                    transition-transform
-                    ease-in-out object-contain
-                  " />
-                        </li>
-                        <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
-                            <img src="https://source.unsplash.com/random/200x200?sig=4" class="
-                    w-full h-full
-                    hover:scale-[1.3]
-                    transition-transform
-                    ease-in-out object-contain
-                  " />
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -82,17 +68,13 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide">
-                            <img src="{{ $product->cover }}" style="height: 100%;width: 100%;object-fit: contain;" />
+                            <img src="{{ asset($product->coverPath . $product->cover) }}" style="height: 100%;width: 100%;object-fit: contain;" />
                         </li>
+                        @foreach ($product->images as $image)
                         <li class="splide__slide">
-                            <img src="https://source.unsplash.com/random/200x200?sig=2" style="height: 100%;width: 100%;object-fit: contain;" />
+                            <img src="{{ asset($image->path . $image->name) }}" style="height: 100%;width: 100%;object-fit: contain;" />
                         </li>
-                        <li class="splide__slide">
-                            <img src="https://source.unsplash.com/random/200x200?sig=3" style="height: 100%;width: 100%;object-fit: contain;" />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="https://source.unsplash.com/random/200x200?sig=4" style="height: 100%;width: 100%;object-fit: contain;" />
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -250,7 +232,7 @@
       }
     });
   </script>
-  <script>
+  {{-- <script>
     // handle not found images
     let imgs = document.querySelectorAll('img');
     imgs.forEach((img, index) => {
@@ -258,5 +240,5 @@
             img.src = "/images/404.png"
         })
     })
-</script>
+</script> --}}
 @endsection

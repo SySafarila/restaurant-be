@@ -46,6 +46,7 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
+        $product = Product::with('images')->find($product->id);
         return view('product.show', compact('product'));
     }
 

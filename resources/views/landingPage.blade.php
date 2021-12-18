@@ -131,7 +131,7 @@
                 overflow-hidden
                 rounded-lg
             ">
-                    <img src="{{ $product->cover }}" alt="{{ $product->name }}" class="
+                    <img src="{{ asset($product->coverPath . $product->cover) }}" alt="{{ $product->name }}" class="
                     w-full
                     group-hover:brightness-75
                     transition-all
