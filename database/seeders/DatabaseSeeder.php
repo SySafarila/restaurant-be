@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             RoleSyncPermissions::class,
             UserSeeder::class,
             ProductSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }
