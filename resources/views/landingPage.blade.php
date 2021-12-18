@@ -23,11 +23,12 @@
         <div class="splide__arrows hidden lg:block">
             <button class="
                     absolute top-[50%] z-10 rounded-full -translate-x-[200%] group-hover:translate-x-0 splide__arrow--prev
-                    bg-white/80
+                    bg-white/50
+                    hover:bg-white/80
                     material-icons
                     transform
                     translate-y-[-50%]
-                    transition-transform
+                    transition-all
                     ease-in-out
                     h-[40px]
                     w-[40px]
@@ -36,11 +37,12 @@
             </button>
             <button class="
                     absolute top-[50%] z-10 rounded-full translate-x-[200%] group-hover:translate-x-0 splide__arrow--next
-                    bg-white/80
+                    bg-white/50
+                    hover:bg-white/80
                     material-icons
                     transform
                     translate-y-[-50%]
-                    transition-transform
+                    transition-all
                     ease-in-out
                     h-[40px]
                     w-[40px]
