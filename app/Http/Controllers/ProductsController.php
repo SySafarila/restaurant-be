@@ -83,4 +83,9 @@ class ProductsController extends Controller
     {
         //
     }
+
+    public function adminProductsIndex()
+    {
+        return 'adminProductsIndex';
+    }
 }

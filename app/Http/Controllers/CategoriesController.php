@@ -84,4 +84,9 @@ class CategoriesController extends Controller
     {
         //
     }
+
+    public function adminCategoriesIndex()
+    {
+        return 'adminCategoriesIndex';
+    }
 }
