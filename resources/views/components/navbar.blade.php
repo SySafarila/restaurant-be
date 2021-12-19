@@ -80,9 +80,7 @@
         <div class="hidden lg:block" id="right">
             <ul class="items-center flex gap-x-3 flex-col lg:flex-row">
                 <a href="#" class="material-icons-round hover:text-sky-500">notifications</a>
-                <!-- <li class="hover:text-sky-500"> -->
                 <a href="#" class="material-icons-round hover:text-sky-500">shopping_cart</a>
-                <!-- </li> -->
                 <li class="
                         flex
                         items-center
@@ -92,8 +90,14 @@
                         dropdown
                         relative
                     ">
-                    <a href="#" class="flex items-center gap-x-2 dropdown-trigger"><span
-                            class="hover:text-sky-500">Syahrul</span>
+                    <a href="#" class="flex items-center gap-x-2 dropdown-trigger">
+                        <span class="hover:text-sky-500">
+                            @auth
+                            {{ Auth::user()->name }}
+                            @else
+                            Account
+                            @endauth
+                        </span>
                         <div class="w-[24px] h-[24px] bg-gray-200 rounded-full"></div>
                     </a>
                     <div class="
@@ -108,8 +112,12 @@
                 min-w-[7rem]
                 flex flex-col gap-y-3 py-4
                         ">
-                        <a href="#profile" class="px-4 hover:text-sky-500">Profile</a>
-                        <a href="#logout" class="px-4 hover:text-sky-500">Logout</a>
+                        @auth
+                            <a href="#profile" class="px-4 hover:text-sky-500">Profile</a>
+                            <a href="#logout" class="px-4 hover:text-sky-500">Logout</a>
+                        @else
+                            <a href="#login" class="px-4 hover:text-sky-500">Login</a>
+                        @endauth
                     </div>
                 </li>
             </ul>

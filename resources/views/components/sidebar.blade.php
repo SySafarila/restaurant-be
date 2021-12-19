@@ -23,17 +23,14 @@
 >
     <ul class="flex gap-y-5 flex-col lg:flex-row">
         <li class="flex items-center gap-x-2 dropdown relative">
-            <a
-                href="#"
-                class="
-                    flex flex-row-reverse
-                    items-center
-                    gap-x-2
-                    dropdown-trigger
-                    w-full
-                    justify-end
-                "
-                ><span class="hover:text-sky-500">Syahrul</span>
+            <a href="#" class="flex flex-row-reverse items-center gap-x-2 dropdown-trigger w-full justify-end">
+                <span class="hover:text-sky-500">
+                    @auth
+                        {{ Auth::user()->name }}
+                    @else
+                        Account
+                    @endauth
+                </span>
                 <div class="w-[24px] h-[24px] bg-gray-200 rounded-full"></div>
             </a>
             <div
@@ -51,8 +48,12 @@
                 flex flex-col gap-y-3 py-4
                 "
             >
-                <a href="#profile" class="px-4 hover:text-sky-500">Profile</a>
-                <a href="#logout" class="px-4 hover:text-sky-500">Logout</a>
+                @auth
+                    <a href="#profile" class="px-4 hover:text-sky-500">Profile</a>
+                    <a href="#logout" class="px-4 hover:text-sky-500">Logout</a>
+                @else
+                    <a href="#login" class="px-4 hover:text-sky-500">Login</a>
+                @endauth
             </div>
         </li>
         @foreach ($gCategories as $category)
