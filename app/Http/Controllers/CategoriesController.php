@@ -46,7 +46,9 @@ class CategoriesController extends Controller
      */
     public function show(Category $category)
     {
-        return $category->with('products')->first();
+        $category = Category::with('products')->where('name', $category->name)->first();
+        // return $category;
+        return view('categories.show', compact('category'));
     }
 
     /**
