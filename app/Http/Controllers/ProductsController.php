@@ -44,9 +44,9 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        $product = Product::with('images')->find($product->id);
+        $product = Product::with('images')->find($id);
         return view('product.show', compact('product'));
     }
 

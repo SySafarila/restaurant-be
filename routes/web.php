@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', LandingPageController::class)->name('index');
-Route::get('/products/{product}', [ProductsController::class, 'show'])->name('product.show');
+Route::get('/products/{id}', [ProductsController::class, 'show'])->name('product.show');
 Route::get('/categories/{category:name}', [CategoriesController::class, 'show'])->name('categories.show');
 
 Route::get('/dashboard', function () {
