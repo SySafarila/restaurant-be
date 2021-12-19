@@ -24,4 +24,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+// admin
+Route::prefix('admin')->middleware(['permission:admin access'])->group(function () {
+    Route::get('/products', [ProductsController::class, 'adminProductsIndex'])->name('admin.products.index');
+    Route::get('/categories', [CategoriesController::class, 'adminCategoriesIndex'])->name('admin.categories.index');
+});
+
+require __DIR__ . '/auth.php';
