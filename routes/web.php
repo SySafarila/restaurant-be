@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', LandingPageController::class)->name('index');
-Route::get('/products/{id}', [ProductsController::class, 'show'])->name('product.show');
+Route::get('/products/{name}-{id}', [ProductsController::class, 'show'])->name('product.show');
 Route::get('/categories/{category:name}', [CategoriesController::class, 'show'])->name('categories.show');
 
 Route::get('/dashboard', function () {
@@ -26,6 +26,9 @@ Route::get('/dashboard', function () {
 
 // admin
 Route::prefix('admin')->middleware(['permission:admin access'])->group(function () {
+    Route::get('/', function () {
+        return 'admin page';
+    })->name('admin.products.index');
     Route::get('/products', [ProductsController::class, 'adminProductsIndex'])->name('admin.products.index');
     Route::get('/categories', [CategoriesController::class, 'adminCategoriesIndex'])->name('admin.categories.index');
 });

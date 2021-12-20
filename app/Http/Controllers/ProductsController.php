@@ -44,9 +44,10 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name, $id)
     {
-        $product = Product::with('images')->find($id);
+        $product = Product::with('images')->where(['id' => $id, 'name' => $name])->first();
+        // return $product;
         return view('product.show', compact('product'));
     }
 
