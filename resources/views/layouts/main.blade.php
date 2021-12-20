@@ -53,9 +53,9 @@
 
 <body class="antialiased font-['Merienda'] text-gray-700 tap-highlight-transparent">
     {{-- @include('components.navbar') --}}
-    <x-navbar />
+    <x-navbar :categories="$gCategories" />
     {{-- @include('components.sidebar') --}}
-    <x-sidebar />
+    <x-sidebar :categories="$gCategories" />
     @yield('content')
     {{-- @include('components.footer') --}}
     <x-footer />

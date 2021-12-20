@@ -56,7 +56,7 @@
                 @endauth
             </div>
         </li>
-        @foreach ($gCategories as $category)
+        @foreach ($categories as $category)
             <li class="hover:text-sky-500 capitalize">
                 <a href="{{ route('categories.show', $category) }}">{{ $category->name }}'s</a>
             </li>

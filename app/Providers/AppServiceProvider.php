@@ -25,10 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['components.navbar', 'components.sidebar'], function ($view) {
+        View::composer(['layouts.main'], function ($view) {
             $categories = Category::all();
             $view->with('gCategories', $categories);
         });
-
     }
 }

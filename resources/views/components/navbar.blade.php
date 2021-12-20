@@ -48,7 +48,7 @@
                     {{-- <a href="#profile" class="px-4 hover:text-sky-500">Food's</a>
                     <a href="#logout" class="px-4 hover:text-sky-500">Drink's</a>
                     <a href="#other" class="px-4 hover:text-sky-500">Other's</a> --}}
-                    @foreach ($gCategories as $category)
+                    @foreach ($categories as $category)
                         <a href="{{ route('categories.show', $category) }}" class="capitalize px-4 hover:text-sky-500">{{ $category->name }}'s</a>
                     @endforeach
                 </div>
