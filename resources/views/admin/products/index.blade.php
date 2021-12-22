@@ -10,7 +10,10 @@
 
 @section('content')
 <div class="p-5 overflow-x-auto">
-    <h2 class="text-2xl font-semibold mb-5">Products Manager</h2>
+    <div class="mb-5 flex items-center gap-2">
+        <h2 class="text-2xl font-semibold">Products Manager</h2>
+        <a href="#" class="material-icons-round text-sky-500 hover:text-sky-600">add</a>
+    </div>
     <table id="products" class="display" style="width:100%">
         <thead>
             <tr>
@@ -28,7 +31,8 @@
             <tr id="{{ $product->id }}">
                 <td></td>
                 <td>
-                    <img src="{{ asset($product->coverPath . $product->cover) }}" alt="{{ $product->cover }}" class="w-[5rem] mx-auto">
+                    <img src="{{ asset($product->coverPath . $product->cover) }}" alt="{{ $product->cover }}"
+                        class="w-[5rem] mx-auto">
                 </td>
                 <td>{{ $product->name }}</td>
                 <td class="text-center">{{ $product->price }}</td>
