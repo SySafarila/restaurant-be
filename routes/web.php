@@ -35,6 +35,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('/products', [ProductsController::class, 'adminProductsDeleteSelected'])->name('admin.products.deleteSelected');
     Route::get('/products/{id}/edit', [ProductsController::class, 'adminProductsEdit'])->name('admin.products.edit');
     Route::patch('/products/{id}', [ProductsController::class, 'adminProductsUpdate'])->name('admin.products.update');
+    Route::delete('/products/{id}', [ProductsController::class, 'adminProductsDelete'])->name('admin.products.delete');
 
     Route::get('/categories', [CategoriesController::class, 'adminCategoriesIndex'])->name('admin.categories.index');
 });

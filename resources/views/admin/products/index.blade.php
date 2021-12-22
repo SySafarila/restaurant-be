@@ -51,8 +51,12 @@
                             class="bg-green-500 hover:bg-green-600 text-sm px-2 py-1 text-white rounded text-center">Edit</a>
                         <a href="#"
                             class="bg-gray-300 hover:bg-gray-400 text-sm px-2 py-1 text-gray-500 hover:text-gray-700 rounded text-center">Photo's</a>
-                        <a href="#"
-                            class="bg-rose-500 hover:bg-rose-600 text-sm px-2 py-1 text-white rounded text-center">Delete</a>
+                        <form action="{{ route('admin.products.delete', $product->id) }}" method="POST" class="flex">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                            class="bg-rose-500 hover:bg-rose-600 text-sm px-2 py-1 text-white rounded text-center grow">Delete</button>
+                        </form>
                     </div>
                 </td>
             </tr>
@@ -77,7 +81,7 @@
             Selected</a>
     </div>
 </div>
-<form action="{{ route('admin.products.deleteSelected') }}" id="deleteSelectedForm" method="POST">
+<form action="{{ route('admin.products.deleteSelected') }}" id="deleteSelectedForm" method="POST" class="hidden">
     @csrf
     @method('DELETE')
     <input type="text" name="ids" id="ids">

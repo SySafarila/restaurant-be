@@ -131,4 +131,10 @@ class ProductsController extends Controller
         Product::destroy($arr);
         return redirect()->route('admin.products.index')->with('status', 'Bulk delete success');
     }
+
+    public function adminProductsDelete(Request $request, $id)
+    {
+        Product::destroy($id);
+        return redirect()->route('admin.products.index')->with('status', 'Delete success');
+    }
 }
