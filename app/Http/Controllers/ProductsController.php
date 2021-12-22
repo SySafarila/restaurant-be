@@ -127,6 +127,8 @@ class ProductsController extends Controller
 
     public function adminProductsDeleteSelected(Request $request)
     {
-        return $request;
+        $arr = explode(',', $request->ids);
+        Product::destroy($arr);
+        return redirect()->route('admin.products.index')->with('status', 'Bulk delete success');
     }
 }
