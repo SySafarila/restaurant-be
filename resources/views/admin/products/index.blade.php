@@ -39,8 +39,8 @@
                 <td class="text-center">{{ $product->quantity }}</td>
                 <td class="text-center">{{ $product->discount ?? 'NO' }}</td>
                 <td class="flex justify-center gap-2">
-                    <a href="#" class="bg-sky-500 hover:bg-sky-600 text-sm px-2 py-1 text-white rounded">Show</a>
-                    <a href="#" class="bg-green-500 hover:bg-green-600 text-sm px-2 py-1 text-white rounded">Edit</a>
+                    <a href="{{ route('product.show', ['id' => $product->id, 'name' => $product->name]) }}" class="bg-sky-500 hover:bg-sky-600 text-sm px-2 py-1 text-white rounded">Show</a>
+                    <a href="{{ route('admin.products.edit', $product->id) }}" class="bg-green-500 hover:bg-green-600 text-sm px-2 py-1 text-white rounded">Edit</a>
                     <a href="#" class="bg-rose-500 hover:bg-rose-600 text-sm px-2 py-1 text-white rounded">Delete</a>
                 </td>
             </tr>

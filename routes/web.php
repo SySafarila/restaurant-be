@@ -30,6 +30,8 @@ Route::prefix('admin')->group(function () {
         return 'admin page';
     })->name('admin.products.index');
     Route::get('/products', [ProductsController::class, 'adminProductsIndex'])->name('admin.products.index');
+    Route::get('/products/{id}/edit', [ProductsController::class, 'adminProductsEdit'])->name('admin.products.edit');
+    Route::patch('/products/{id}', [ProductsController::class, 'adminProductsUpdate'])->name('admin.products.update');
     Route::get('/categories', [CategoriesController::class, 'adminCategoriesIndex'])->name('admin.categories.index');
 });
 

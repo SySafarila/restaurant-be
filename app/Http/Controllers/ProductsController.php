@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -92,5 +93,27 @@ class ProductsController extends Controller
 
         // return $products;
         return view('admin.products.index', compact('products', 'n'));
+    }
+
+    public function adminProductsEdit($id)
+    {
+        $product = Product::with('images')->find($id);
+        $categories = Category::all();
+        // return $product;
+        return view('admin.products.edit', compact('product', 'categories'));
+    }
+
+    public function adminProductsUpdate(Request $request, $id)
+    {
+
+        Product::find($id)->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+            'discount' => $request->discount,
+            'category_id' => $request->category_id,
+        ]);
+        return $request;
     }
 }
