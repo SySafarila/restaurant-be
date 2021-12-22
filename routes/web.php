@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 // admin
-Route::prefix('admin')->middleware(['permission:admin access'])->group(function () {
+Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return 'admin page';
     })->name('admin.products.index');

@@ -87,6 +87,10 @@ class ProductsController extends Controller
 
     public function adminProductsIndex()
     {
-        return 'adminProductsIndex';
+        $products = Product::with('category')->get();
+        $n = 1;
+
+        // return $products;
+        return view('admin.products.index', compact('products', 'n'));
     }
 }
