@@ -105,6 +105,14 @@ class ProductsController extends Controller
 
     public function adminProductsUpdate(Request $request, $id)
     {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'quantity' => ['required', 'numeric', 'digits_between:0,11'],
+            'price' => ['required', 'numeric'],
+            'discount' => ['required', 'numeric','digits_between:0,11'],
+            'category_id' => ['required', 'exists:categories,id'],
+        ]);
 
         Product::find($id)->update([
             'name' => $request->name,
@@ -114,6 +122,6 @@ class ProductsController extends Controller
             'discount' => $request->discount,
             'category_id' => $request->category_id,
         ]);
-        return $request;
+        return redirect()->route('admin.products.edit', $id)->with('status', 'Product updated !');
     }
 }
