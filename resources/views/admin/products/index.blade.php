@@ -9,9 +9,9 @@
 @endsection
 
 @section('content')
-<div class="p-5">
-    <h2 class="text-2xl font-semibold">Products Manager</h2>
-    <table id="example" class="display" style="width:100%">
+<div class="p-5 overflow-x-auto">
+    <h2 class="text-2xl font-semibold mb-5">Products Manager</h2>
+    <table id="products" class="display" style="width:100%">
         <thead>
             <tr>
                 <th></th>
@@ -20,6 +20,7 @@
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Discount</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,11 @@
                 <td class="text-center">{{ $product->price }}</td>
                 <td class="text-center">{{ $product->quantity }}</td>
                 <td class="text-center">{{ $product->discount ?? 'NO' }}</td>
+                <td class="flex justify-center gap-2">
+                    <a href="#" class="bg-sky-500 hover:bg-sky-600 text-sm px-2 py-1 text-white rounded">Show</a>
+                    <a href="#" class="bg-green-500 hover:bg-green-600 text-sm px-2 py-1 text-white rounded">Edit</a>
+                    <a href="#" class="bg-rose-500 hover:bg-rose-600 text-sm px-2 py-1 text-white rounded">Delete</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
@@ -44,9 +50,14 @@
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Discount</th>
+                <th>Actions</th>
             </tr>
         </tfoot>
     </table>
+    <div class="flex gap-2 items-center">
+        <span>Bulk Action :</span>
+        <a href="#" class="px-2 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded">Delete Selected</a>
+    </div>
 </div>
 @endsection
 
@@ -56,7 +67,7 @@
 <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#example').DataTable( {
+        $('#products').DataTable( {
             columnDefs: [ {
                 orderable: false,
                 className: 'select-checkbox',
