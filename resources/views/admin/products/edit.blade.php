@@ -8,8 +8,8 @@
 
 @section('content')
 <div class="p-5">
-    @if (session()->has('status'))
-        {{ session()->get('status') }}
+    @if (session('status'))
+        <p class="bg-sky-200 text-sky-700 p-4 rounded-lg mb-5">{{ session('status') }}</p>
     @endif
     <div class="mb-5 flex items-center gap-2">
         <h2 class="text-2xl font-semibold">Edit Product</h2>
@@ -20,32 +20,32 @@
         @method('PATCH')
         <div>
             <label for="name">name</label>
-            <input required class="w-full border rounded focus:outline-none p-2" type="text" name="name"
+            <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="text" name="name"
                 value="{{ old('name') ?? $product->name }}">
         </div>
         <div>
             <label for="description">description</label>
-            <textarea required class="w-full border rounded focus:outline-none p-2" name="description"
+            <textarea required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" name="description"
                 rows="10">{{ old('description') ?? $product->description }}</textarea>
         </div>
         <div>
             <label for="quantity">quantity</label>
-            <input required class="w-full border rounded focus:outline-none p-2" type="number" name="quantity"
+            <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="number" name="quantity"
                 value="{{ old('quantity') ?? $product->quantity }}">
         </div>
         <div>
             <label for="price">price</label>
-            <input required class="w-full border rounded focus:outline-none p-2" type="number" name="price"
+            <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="number" name="price"
                 value="{{ old('price') ?? $product->price }}">
         </div>
         <div>
             <label for="discount">discount (%)</label>
-            <input required class="w-full border rounded focus:outline-none p-2" type="number" name="discount"
+            <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="number" name="discount"
                 value="{{ old('discount') ?? $product->discount }}">
         </div>
         <div>
             <label for="category">category</label>
-            <select required class="w-full border rounded focus:outline-none p-2" name="category_id">
+            <select required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" name="category_id">
                 @foreach ($categories as $category)
                 <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{
                     $category->name }}</option>
