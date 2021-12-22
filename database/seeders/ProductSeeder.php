@@ -24,7 +24,7 @@ class ProductSeeder extends Seeder
                 'coverPath' => 'images/foods/',
                 'price' => 20000,
                 'quantity' => 50,
-                'discount' => null,
+                'discount' => 0,
                 'category_id' => 1
             ]);
         }
@@ -36,7 +36,7 @@ class ProductSeeder extends Seeder
                 'coverPath' => 'images/foods/',
                 'price' => 20000,
                 'quantity' => 50,
-                'discount' => null,
+                'discount' => 0,
                 'category_id' => 2
             ]);
         }
@@ -48,7 +48,7 @@ class ProductSeeder extends Seeder
                 'coverPath' => 'images/foods/',
                 'price' => 20000,
                 'quantity' => 50,
-                'discount' => null,
+                'discount' => 0,
                 'category_id' => 3
             ]);
         }

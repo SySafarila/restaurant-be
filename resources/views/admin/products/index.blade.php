@@ -10,6 +10,9 @@
 
 @section('content')
 <div class="p-5 overflow-x-auto">
+    @if (session('status'))
+        <p class="bg-sky-200 text-sky-700 p-4 rounded-lg mb-5">{{ session('status') }}</p>
+    @endif
     <div class="mb-5 flex items-center gap-2">
         <h2 class="text-2xl font-semibold">Products Manager</h2>
         <a href="#" class="material-icons-round text-sky-500 hover:text-sky-600">add</a>
@@ -20,6 +23,7 @@
                 <th></th>
                 <th>Image</th>
                 <th class="text-left">Name</th>
+                <th class="text-left">Category</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Discount</th>
@@ -35,13 +39,17 @@
                         class="w-[5rem] mx-auto">
                 </td>
                 <td>{{ $product->name }}</td>
+                <td class="capitalize">{{ $product->category->name }}</td>
                 <td class="text-center">{{ $product->price }}</td>
                 <td class="text-center">{{ $product->quantity }}</td>
-                <td class="text-center">{{ $product->discount ?? 'NO' }}</td>
-                <td class="flex justify-center gap-2">
-                    <a href="{{ route('product.show', ['id' => $product->id, 'name' => $product->name]) }}" class="bg-sky-500 hover:bg-sky-600 text-sm px-2 py-1 text-white rounded">Show</a>
-                    <a href="{{ route('admin.products.edit', $product->id) }}" class="bg-green-500 hover:bg-green-600 text-sm px-2 py-1 text-white rounded">Edit</a>
-                    <a href="#" class="bg-rose-500 hover:bg-rose-600 text-sm px-2 py-1 text-white rounded">Delete</a>
+                <td class="text-center">{{ $product->discount }}%</td>
+                <td>
+                    <div class="flex justify-center gap-2">
+                        <a href="{{ route('product.show', ['id' => $product->id, 'name' => $product->name]) }}" class="bg-sky-500 hover:bg-sky-600 text-sm px-2 py-1 text-white rounded">Show</a>
+                        <a href="{{ route('admin.products.edit', $product->id) }}" class="bg-green-500 hover:bg-green-600 text-sm px-2 py-1 text-white rounded">Edit</a>
+                        <a href="#" class="bg-gray-300 hover:bg-gray-400 text-sm px-2 py-1 text-gray-500 hover:text-gray-700 rounded">Photo's</a>
+                        <a href="#" class="bg-rose-500 hover:bg-rose-600 text-sm px-2 py-1 text-white rounded">Delete</a>
+                    </div>
                 </td>
             </tr>
             @endforeach

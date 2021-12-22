@@ -122,6 +122,6 @@ class ProductsController extends Controller
             'discount' => $request->discount,
             'category_id' => $request->category_id,
         ]);
-        return redirect()->route('admin.products.edit', $id)->with('status', 'Product updated !');
+        return redirect()->route('admin.products.index')->with('status', 'Product updated !');
     }
 }
