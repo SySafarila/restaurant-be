@@ -29,9 +29,13 @@ Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return 'admin page';
     })->name('admin.products.index');
+
+    // products
     Route::get('/products', [ProductsController::class, 'adminProductsIndex'])->name('admin.products.index');
+    Route::delete('/products', [ProductsController::class, 'adminProductsDeleteSelected'])->name('admin.products.deleteSelected');
     Route::get('/products/{id}/edit', [ProductsController::class, 'adminProductsEdit'])->name('admin.products.edit');
     Route::patch('/products/{id}', [ProductsController::class, 'adminProductsUpdate'])->name('admin.products.update');
+
     Route::get('/categories', [CategoriesController::class, 'adminCategoriesIndex'])->name('admin.categories.index');
 });
 

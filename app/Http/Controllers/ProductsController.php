@@ -124,4 +124,9 @@ class ProductsController extends Controller
         ]);
         return redirect()->route('admin.products.index')->with('status', 'Product updated !');
     }
+
+    public function adminProductsDeleteSelected(Request $request)
+    {
+        return $request;
+    }
 }
