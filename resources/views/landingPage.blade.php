@@ -142,23 +142,24 @@
                     h-full
                     object-contain
                 " />
-                    <div class="
-                    flex
-                    items-center
-                    bg-sky-500
-                    text-white
-                    w-fit
-                    absolute
-                    top-0
-                    left-0
-                    p-2
-                    rounded-br
-                    gap-x-1
-                    hidden
-                ">
-                        <span class="material-icons-round text-sm">discount</span>
-                        <span class="text-sm">5%</span>
-                    </div>
+                @if ($product->discount > 0)
+                <div class="
+                flex
+                items-center
+                bg-sky-500
+                text-white
+                w-fit
+                absolute
+                top-0
+                left-0
+                p-2
+                rounded-br
+                gap-x-1
+            ">
+                    <span class="material-icons-round text-sm">discount</span>
+                    <span class="text-sm">{{ $product->discount }}%</span>
+                </div>
+                @endif
                 </div>
                 <h3 class="
                 group-hover:text-sky-500

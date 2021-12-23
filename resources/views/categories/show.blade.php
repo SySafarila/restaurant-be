@@ -37,6 +37,7 @@
                     h-full
                     object-contain
                 " />
+                    @if ($product->discount > 0)
                     <div class="
                     flex
                     items-center
@@ -49,11 +50,11 @@
                     p-2
                     rounded-br
                     gap-x-1
-                    hidden
                 ">
                         <span class="material-icons-round text-sm">discount</span>
-                        <span class="text-sm">5%</span>
+                        <span class="text-sm">{{ $product->discount }}%</span>
                     </div>
+                    @endif
                 </div>
                 <h3 class="
                 group-hover:text-sky-500
