@@ -190,6 +190,6 @@ class ProductsController extends Controller
             }
         }
 
-        return redirect()->route('admin.products.index')->with('success', 'Product created !');
+        return redirect()->route('admin.products.index')->with('status', 'Product created !');
     }
 }
