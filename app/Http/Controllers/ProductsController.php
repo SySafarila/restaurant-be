@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductsController extends Controller
 {
@@ -146,6 +147,35 @@ class ProductsController extends Controller
 
     public function adminProductsStore(Request $request)
     {
-        return $request;
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'quantity' => ['required', 'numeric', 'digits_between:0,11'],
+            'price' => ['required', 'numeric'],
+            'discount' => ['required', 'numeric','digits_between:0,11'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'cover' => ['required', 'file', 'image', 'max:10000']
+        ]);
+
+        // return $request;
+
+        $randomString = Str::random(10);
+        $imgName = $randomString . str_replace(' ', '-', $request->file('cover')->getClientOriginalName());
+        $dir = 'public/productCover';
+
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+            'discount' => $request->discount,
+            'category_id' => $request->category_id,
+            'cover' => $imgName,
+            'coverPath' => 'storage/productCover/',
+        ]);
+
+        $request->file('cover')->storeAs($dir, $imgName);
+
+        return redirect()->route('admin.products.index')->with('success', 'Product created !');
     }
 }

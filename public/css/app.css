@@ -914,10 +914,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(244 63 94 / var(--tw-bg-opacity));
 }
-.bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
-}
 .fill-current {
   fill: currentColor;
 }
@@ -1275,6 +1271,46 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
+.file\:mr-3::-webkit-file-upload-button {
+  margin-right: 0.75rem;
+}
+.file\:mr-3::file-selector-button {
+  margin-right: 0.75rem;
+}
+.file\:rounded::-webkit-file-upload-button {
+  border-radius: 0.25rem;
+}
+.file\:rounded::file-selector-button {
+  border-radius: 0.25rem;
+}
+.file\:border-none::-webkit-file-upload-button {
+  border-style: none;
+}
+.file\:border-none::file-selector-button {
+  border-style: none;
+}
+.file\:bg-sky-100::-webkit-file-upload-button {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 242 254 / var(--tw-bg-opacity));
+}
+.file\:bg-sky-100::file-selector-button {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 242 254 / var(--tw-bg-opacity));
+}
+.file\:p-2::-webkit-file-upload-button {
+  padding: 0.5rem;
+}
+.file\:p-2::file-selector-button {
+  padding: 0.5rem;
+}
+.file\:text-sky-700::-webkit-file-upload-button {
+  --tw-text-opacity: 1;
+  color: rgb(3 105 161 / var(--tw-text-opacity));
+}
+.file\:text-sky-700::file-selector-button {
+  --tw-text-opacity: 1;
+  color: rgb(3 105 161 / var(--tw-text-opacity));
+}
 .after\:fixed::after {
   content: var(--tw-content);
   position: fixed;
@@ -1377,17 +1413,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
-.hover\:bg-rose-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(225 29 72 / var(--tw-bg-opacity));
-}
-.hover\:bg-gray-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
-}
 .hover\:bg-gray-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+.hover\:bg-rose-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(225 29 72 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
@@ -1413,9 +1445,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
-.hover\:text-gray-300:hover {
-  --tw-text-opacity: 1;
-  color: rgb(209 213 219 / var(--tw-text-opacity));
+.hover\:file\:bg-sky-200::-webkit-file-upload-button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(186 230 253 / var(--tw-bg-opacity));
+}
+.hover\:file\:bg-sky-200::file-selector-button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(186 230 253 / var(--tw-bg-opacity));
 }
 .focus\:border-indigo-300:focus {
   --tw-border-opacity: 1;
