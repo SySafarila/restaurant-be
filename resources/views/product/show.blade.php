@@ -84,7 +84,15 @@
                 <h1 class="font-bold text-lg">
                     {{$product->name}}
                 </h1>
-                <span class="text-sky-500 text-2xl">Rp{{ number_format($product->price,0 ,0, ',') }}</span>
+                <div class="flex items-start">
+                    <span class="text-sky-500 text-2xl">Rp{{ number_format($product->price,0 ,0, ',') }}</span>
+                    @if ($product->discount > 0)
+                    <div class="flex items-center bg-sky-500 text-white rounded-full px-1 py-[0.1rem]">
+                        <span class="material-icons-round text-xs">discount</span>
+                        <span class="text-xs">{{ $product->discount }}%</span>
+                    </div>
+                    @endif
+                </div>
             </div>
             <div class="flex flex-col gap-3 pt-3">
                 <h2 class="font-['Fredericka_the_Great'] text-3xl">Detail</h2>
