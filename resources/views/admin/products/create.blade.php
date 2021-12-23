@@ -18,32 +18,32 @@
     <form action="{{ route('admin.products.store') }}" method="post" enctype="multipart/form-data" class="flex flex-col gap-3">
         @csrf
         <div class="flex flex-col gap-1">
-            <label class="capitalize" for="name">name</label>
+            <label class="capitalize" for="name">name *</label>
             <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="text"
                 name="name" value="{{ old('name') }}">
         </div>
         <div class="flex flex-col gap-1">
-            <label class="capitalize" for="description">description</label>
+            <label class="capitalize" for="description">description *</label>
             <textarea required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400"
                 name="description" rows="10">{{ old('description') }}</textarea>
         </div>
         <div class="flex flex-col gap-1">
-            <label class="capitalize" for="quantity">quantity</label>
+            <label class="capitalize" for="quantity">quantity *</label>
             <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="number"
                 name="quantity" value="{{ old('quantity') }}">
         </div>
         <div class="flex flex-col gap-1">
-            <label class="capitalize" for="price">price</label>
+            <label class="capitalize" for="price">price *</label>
             <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="number"
                 name="price" value="{{ old('price') }}">
         </div>
         <div class="flex flex-col gap-1">
-            <label class="capitalize" for="discount">discount (%)</label>
+            <label class="capitalize" for="discount">discount (%) *</label>
             <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="number"
                 name="discount" value="{{ old('discount') }}">
         </div>
         <div class="flex flex-col gap-1">
-            <label class="capitalize" for="category">category</label>
+            <label class="capitalize" for="category">category *</label>
             <select required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400 capitalize"
                 name="category_id">
                 @foreach ($categories as $category)
@@ -52,7 +52,7 @@
             </select>
         </div>
         <div class="flex flex-col gap-1">
-            <label class="capitalize" for="cover">cover</label>
+            <label class="capitalize" for="cover">cover *</label>
             <input required type="file" name="cover" id="cover" class="w-full file:border-none file:p-2 file:rounded file:bg-sky-100 file:text-sky-700 hover:file:bg-sky-200 file:mr-3" accept="image/*">
         </div>
         <div class="flex flex-col gap-1">
