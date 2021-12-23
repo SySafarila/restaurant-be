@@ -14,7 +14,7 @@ class ProductImageSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 50; $i++) {
+        for ($i=0; $i < 45; $i++) {
             ProductImage::create([
                 'name' => '2.jpg',
                 'path' => 'images/foods/',
