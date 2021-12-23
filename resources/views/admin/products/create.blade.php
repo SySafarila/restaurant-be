@@ -53,7 +53,11 @@
         </div>
         <div class="flex flex-col gap-1">
             <label class="capitalize" for="cover">cover</label>
-            <input type="file" name="cover" id="cover" class="w-full file:border-none file:p-2 file:rounded file:bg-sky-100 file:text-sky-700 hover:file:bg-sky-200 file:mr-3" accept="image/*">
+            <input required type="file" name="cover" id="cover" class="w-full file:border-none file:p-2 file:rounded file:bg-sky-100 file:text-sky-700 hover:file:bg-sky-200 file:mr-3" accept="image/*">
+        </div>
+        <div class="flex flex-col gap-1">
+            <label class="capitalize" for="additionalImages">additional images</label>
+            <input type="file" name="additionalImages[]" id="additionalImages" class="w-full file:border-none file:p-2 file:rounded file:bg-sky-100 file:text-sky-700 hover:file:bg-sky-200 file:mr-3" accept="image/*" multiple>
         </div>
         <button type="submit" class="px-2 py-1 bg-sky-500 hover:bg-sky-600 text-white rounded w-fit">Create</button>
     </form>

@@ -154,16 +154,15 @@ class ProductsController extends Controller
             'price' => ['required', 'numeric'],
             'discount' => ['required', 'numeric','digits_between:0,11'],
             'category_id' => ['required', 'exists:categories,id'],
-            'cover' => ['required', 'file', 'image', 'max:10000']
+            'cover' => ['required', 'file', 'image', 'max:10000'],
+            'additionalImages.*' => ['file', 'image', 'max:10000']
         ]);
-
-        // return $request;
 
         $randomString = Str::random(10);
         $imgName = $randomString . str_replace(' ', '-', $request->file('cover')->getClientOriginalName());
         $dir = 'public/productCover';
 
-        Product::create([
+        $product = Product::create([
             'name' => $request->name,
             'description' => $request->description,
             'quantity' => $request->quantity,
@@ -175,6 +174,21 @@ class ProductsController extends Controller
         ]);
 
         $request->file('cover')->storeAs($dir, $imgName);
+
+        if ($request->hasFile('additionalImages')) {
+            foreach ($request->file('additionalImages') as $image ) {
+                $randomString = Str::random(10);
+                $imgName = $randomString . str_replace(' ', '-', $image->getClientOriginalName());
+                $dir = 'public/productImages';
+
+                $product->images()->create([
+                    'name' => $imgName,
+                    'path' => 'storage/productImages/'
+                ]);
+
+                $image->storeAs($dir, $imgName);
+            }
+        }
 
         return redirect()->route('admin.products.index')->with('success', 'Product created !');
     }
