@@ -137,4 +137,15 @@ class ProductsController extends Controller
         Product::destroy($id);
         return redirect()->route('admin.products.index')->with('status', 'Delete success');
     }
+
+    public function adminProductsCreate()
+    {
+        $categories = Category::all();
+        return view('admin.products.create', compact('categories'));
+    }
+
+    public function adminProductsStore(Request $request)
+    {
+        return $request;
+    }
 }

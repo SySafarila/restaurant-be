@@ -15,7 +15,7 @@
     @endif
     <div class="mb-5 flex items-center gap-2">
         <h2 class="text-2xl font-semibold">Products Manager</h2>
-        <a href="#" class="material-icons-round text-sky-500 hover:text-sky-600">add</a>
+        <a href="{{ route('admin.products.create') }}" class="material-icons-round text-sky-500 hover:text-sky-600">add</a>
     </div>
     <table id="products" class="display" style="width:100%">
         <thead>
