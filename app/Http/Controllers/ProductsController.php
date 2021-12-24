@@ -48,7 +48,7 @@ class ProductsController extends Controller
      */
     public function show($name, $id)
     {
-        $product = Product::with('images')->where(['id' => $id, 'name' => $name])->first();
+        $product = Product::with(['images', 'reviews'])->where(['id' => $id, 'name' => $name])->first();
         // return $product;
         return view('product.show', compact('product'));
     }
@@ -189,6 +189,11 @@ class ProductsController extends Controller
                 $image->storeAs($dir, $imgName);
             }
         }
+
+        $product->reviews()->create([
+            'user_id' => 1,
+            'text' => 'Fusce cubilia metus pulvinar mattis maecenas himenaeos ipsum convallis in egestas etiam. Netus duis sollicitudin letius tristique nunc at turpis urna mi justo. Semper aliquet euismod bibendum placerat orci. Imperdiet etiam erat morbi fringilla tempor litora sem rhoncus hendrerit tincidunt justo. Turpis ex nec cubilia praesent quis. Tempus enim nunc ad posuere si habitasse laoreet malesuada nullam mauris.'
+        ]);
 
         return redirect()->route('admin.products.index')->with('status', 'Product created !');
     }
