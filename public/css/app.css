@@ -577,6 +577,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: -moz-min-content;
   height: min-content;
 }
+.max-h-\[1-rem\] {
+  max-height: 1 - rem;
+}
+.max-h-\[10rem\] {
+  max-height: 10rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -736,6 +742,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .gap-1 {
   gap: 0.25rem;
+}
+.gap-4 {
+  gap: 1rem;
 }
 .gap-y-2 {
   row-gap: 0.5rem;
@@ -914,6 +923,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(244 63 94 / var(--tw-bg-opacity));
 }
+.bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -990,17 +1003,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-.py-\[0\.3rem\] {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-}
 .py-\[0\.1rem\] {
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 .pb-2 {
   padding-bottom: 0.5rem;
@@ -1180,10 +1189,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-sky-700 {
   --tw-text-opacity: 1;
   color: rgb(3 105 161 / var(--tw-text-opacity));
-}
-.text-sky-800 {
-  --tw-text-opacity: 1;
-  color: rgb(7 89 133 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -1772,6 +1777,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .xl\:w-1\/2 {
     width: 50%;
+  }
+
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

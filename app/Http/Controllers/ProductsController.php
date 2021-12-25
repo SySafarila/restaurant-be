@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -201,6 +203,21 @@ class ProductsController extends Controller
     {
         $product = Product::with('images')->find($id);
 
-        return $product;
+        return view('admin.products.photosManager', compact('product'));
+    }
+
+    public function adminProductsPhotosManagerDelete($productId, $imageId)
+    {
+        $image = ProductImage::find($imageId);
+        $imgDir = explode('/', $image->path)[1];
+        $storageFullPath = 'public/' . $imgDir. '/' . $image->name;
+
+        if (Storage::disk('local')->exists($storageFullPath)) {
+            Storage::disk('local')->delete($storageFullPath);
+        }
+
+        $image->delete();
+
+        return redirect()->route('admin.products.photosManager', $productId)->with('status', 'Photos deleted !');
     }
 }
