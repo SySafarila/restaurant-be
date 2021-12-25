@@ -244,4 +244,30 @@ class ProductsController extends Controller
 
         return redirect()->route('admin.products.photosManager', $productId)->with('status', 'Photos deleted !');
     }
+
+    public function adminProductsPhotosManagerStore(Request $request, $id)
+    {
+        $request->validate([
+            'additionalImages.*' => ['file', 'image', 'max:10000']
+        ]);
+
+        $product = Product::find($id);
+
+        if ($request->hasFile('additionalImages')) {
+            foreach ($request->file('additionalImages') as $image ) {
+                $randomString = Str::random(10);
+                $imgName = $randomString . str_replace(' ', '-', $image->getClientOriginalName());
+                $dir = 'public/productImages';
+
+                $product->images()->create([
+                    'name' => $imgName,
+                    'path' => 'storage/productImages/'
+                ]);
+
+                $image->storeAs($dir, $imgName);
+            }
+        }
+
+        return redirect()->route('admin.products.photosManager', $id)->with('status', 'Photos Uploaded !');
+    }
 }

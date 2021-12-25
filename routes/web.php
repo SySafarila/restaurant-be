@@ -37,6 +37,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/products/create', [ProductsController::class, 'adminProductsCreate'])->name('admin.products.create');
     Route::get('/products/{id}/edit', [ProductsController::class, 'adminProductsEdit'])->name('admin.products.edit');
     Route::get('/products/{id}/photos-manager', [ProductsController::class, 'adminProductsPhotosManager'])->name('admin.products.photosManager');
+    Route::post('/products/{id}/photos-manager', [ProductsController::class, 'adminProductsPhotosManagerStore'])->name('admin.products.photosManagerStore');
     Route::delete('/products/{productId}/photos-manager/{imageId}', [ProductsController::class, 'adminProductsPhotosManagerDelete'])->name('admin.products.photosManagerDelete');
     Route::patch('/products/{id}', [ProductsController::class, 'adminProductsUpdate'])->name('admin.products.update');
     Route::delete('/products/{id}', [ProductsController::class, 'adminProductsDelete'])->name('admin.products.delete');

@@ -12,7 +12,7 @@
     @endif
     <div class="mb-5 flex items-center gap-2">
         <h2 class="text-2xl font-semibold">Photos Manager</h2>
-        <a href="#" class="material-icons-round text-sky-500 hover:text-sky-600">add</a>
+        {{-- <a href="#" class="material-icons-round text-sky-500 hover:text-sky-600">add</a> --}}
     </div>
     <div class="items-center grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {{-- <div class="flex flex-col h-full justify-between gap-2">
@@ -38,6 +38,14 @@
             </form>
         @endforeach
     </div>
+    <form action="{{ route('admin.products.photosManagerStore', $product->id) }}" method="POST" enctype="multipart/form-data" class="mt-4">
+        @csrf
+        <div class="flex flex-col gap-1">
+            <label class="capitalize" for="additionalImages">additional images</label>
+            <input type="file" name="additionalImages[]" id="additionalImages" class="w-full file:border-none file:p-2 file:rounded file:bg-sky-100 file:text-sky-700 hover:file:bg-sky-200 file:mr-3" accept="image/*" multiple>
+        </div>
+        <button type="submit" class="mt-4 bg-sky-500 hover:bg-sky-600 text-white px-2 py-1 rounded">Add</button>
+    </form>
 </div>
 @endsection
 
