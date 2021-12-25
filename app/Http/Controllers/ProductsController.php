@@ -92,7 +92,6 @@ class ProductsController extends Controller
         $products = Product::with('category')->get();
         $n = 1;
 
-        // return $products;
         return view('admin.products.index', compact('products', 'n'));
     }
 
@@ -196,5 +195,12 @@ class ProductsController extends Controller
         ]);
 
         return redirect()->route('admin.products.index')->with('status', 'Product created !');
+    }
+
+    public function adminProductsPhotosManager($id)
+    {
+        $product = Product::with('images')->find($id);
+
+        return $product;
     }
 }

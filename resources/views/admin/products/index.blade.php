@@ -49,7 +49,7 @@
                             class="bg-sky-500 hover:bg-sky-600 text-sm px-2 py-1 text-white rounded text-center">Show</a>
                         <a href="{{ route('admin.products.edit', $product->id) }}"
                             class="bg-green-500 hover:bg-green-600 text-sm px-2 py-1 text-white rounded text-center">Edit</a>
-                        <a href="#"
+                        <a href="{{ route('admin.products.photosManager', $product->id) }}"
                             class="bg-gray-300 hover:bg-gray-400 text-sm px-2 py-1 text-gray-500 hover:text-gray-700 rounded text-center">Photo's</a>
                         <form action="{{ route('admin.products.delete', $product->id) }}" method="POST" class="flex">
                             @csrf
