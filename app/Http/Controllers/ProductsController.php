@@ -114,9 +114,11 @@ class ProductsController extends Controller
             'price' => ['required', 'numeric'],
             'discount' => ['required', 'numeric','digits_between:0,11'],
             'category_id' => ['required', 'exists:categories,id'],
+            'cover' => ['file', 'image', 'max:10000']
         ]);
 
-        Product::find($id)->update([
+        $product = Product::find($id);
+        $product->update([
             'name' => $request->name,
             'description' => $request->description,
             'quantity' => $request->quantity,
@@ -124,6 +126,28 @@ class ProductsController extends Controller
             'discount' => $request->discount,
             'category_id' => $request->category_id,
         ]);
+
+        if ($request->hasFile('cover')) {
+            // $image = ProductImage::find($imageId);
+            $imgDir = explode('/', $product->coverPath)[1];
+            $storageFullPath = 'public/' . $imgDir. '/' . $product->cover;
+
+            if (Storage::disk('local')->exists($storageFullPath)) {
+                Storage::disk('local')->delete($storageFullPath);
+            }
+
+            $randomString = Str::random(10);
+            $imgName = $randomString . str_replace(' ', '-', $request->file('cover')->getClientOriginalName());
+            $dir = 'public/productCover';
+
+            $product->update([
+                'cover' => $imgName,
+                'coverPath' => 'storage/productCover/',
+            ]);
+
+            $request->file('cover')->storeAs($dir, $imgName);
+        }
+
         return redirect()->route('admin.products.index')->with('status', 'Product updated !');
     }
 

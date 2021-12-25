@@ -15,7 +15,7 @@
         <h2 class="text-2xl font-semibold">Edit Product</h2>
         {{-- <a href="#" class="material-icons-round text-sky-500 hover:text-sky-600">add</a> --}}
     </div>
-    <form action="{{ route('admin.products.update', $product->id) }}" method="POST" class="flex flex-col gap-3">
+    <form action="{{ route('admin.products.update', $product->id) }}" method="POST" class="flex flex-col gap-3" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="flex flex-col gap-1">
