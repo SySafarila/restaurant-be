@@ -94,6 +94,8 @@ class ProductsController extends Controller
         $products = Product::with('category')->get();
         $n = 1;
 
+        // return $products;
+
         return view('admin.products.index', compact('products', 'n'));
     }
 
