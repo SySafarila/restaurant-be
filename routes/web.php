@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 
 // admin
 Route::prefix('admin')->group(function () {
-    Route::view('/', 'layouts/adminlte');
+    Route::view('/', 'layouts/adminlte')->name('admin.index');
 
     // products
     Route::get('/products', [ProductsController::class, 'adminProductsIndex'])->name('admin.products.index');
