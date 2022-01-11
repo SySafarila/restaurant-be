@@ -37,7 +37,8 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('admin.index') }}" class="nav-link {{ request()->routeIs('admin.index') ? 'active' : '' }}">
+                    <a href="{{ route('admin.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -648,8 +649,8 @@
                         <p>Level 1</p>
                     </a>
                 </li> --}}
-                <li class="nav-header">LABELS</li>
-                <li class="nav-item">
+                {{-- <li class="nav-header">LABELS</li> --}}
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Important</p>
@@ -665,6 +666,19 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>
                         <p>Informational</p>
+                    </a>
+                </li> --}}
+                <li class="nav-header">ACCOUNT</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <p>Edit Profile</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <p>Logout</p>
                     </a>
                 </li>
             </ul>
