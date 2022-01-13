@@ -18,6 +18,13 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
+        @if (session('status'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            {{-- <h5><i class="icon fas fa-check"></i> Alert!</h5> --}}
+            {{ session('status') }}
+        </div>
+        @endif
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1>Products</h1>
