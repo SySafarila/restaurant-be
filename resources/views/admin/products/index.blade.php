@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+
+{{-- Material Icons --}}
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 @endsection
 
 @section('content')
@@ -482,25 +486,43 @@
                             <thead>
                                 <tr>
                                     <th style="width: 20px" class="text-center">#</th>
-                                    <th>Img</th>
+                                    {{-- <th>Img</th> --}}
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Qty</th>
                                     <th>Disc</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($products as $product)
                                 <tr data-product-id="{{ $product->id }}">
                                     <td class="text-center">{{ $n++ }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <img src="{{ asset($product->coverPath . $product->cover) }}" alt=""
                                             width="60px">
+                                    </td> --}}
+                                    <td>
+                                        <a
+                                            href="{{ route('product.show', ['id' => $product->id, 'name' => $product->name]) }}">{{
+                                            $product->name }}</a>
                                     </td>
-                                    <td>{{ $product->name }}</td>
                                     <td>{{ $product->price }}</td>
                                     <td>{{ $product->quantity }}</td>
                                     <td>{{ $product->discount }}</td>
+                                    <td class="align-items-start d-flex justify-content-center" style="gap: 1rem">
+                                        <a href="{{ route('admin.products.edit', $product->id) }}"
+                                            class="material-icons-round text-secondary">edit</a>
+                                        <a href="{{ route('admin.products.photosManager', $product->id) }}"
+                                            class="material-icons-round text-secondary">image</a>
+                                        <span class="material-icons-round text-danger" style="cursor: pointer"
+                                            onclick="event.preventDefault();document.getElementById('delete-{{ $product->id }}').submit()">delete</span>
+                                        <form action="{{ route('admin.products.delete', $product->id) }}" method="POST"
+                                            class="d-none" id="{{ 'delete-' . $product->id  }}">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
