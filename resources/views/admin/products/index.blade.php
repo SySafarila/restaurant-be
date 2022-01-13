@@ -573,8 +573,9 @@
         "responsive": true, "lengthChange": false, "autoWidth": false,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis", {
                 text: 'Delete Selected',
+                className: 'btn-danger',
                 action: function ( e, dt, node, config ) {
-                    alert( 'Button activated' );
+                    checkSelectedRows()
                 }
             }],
         select: {
@@ -591,5 +592,15 @@
     //     "responsive": true,
     //   });
     });
+</script>
+<script>
+    const checkSelectedRows = () => {
+        let selectedRowsArr = []
+        let selectedRows = document.querySelectorAll('tr.selected');
+        selectedRows.forEach(row => {
+            selectedRowsArr.push(row.dataset.productId);
+        });
+        console.log(selectedRowsArr);
+    }
 </script>
 @endsection
