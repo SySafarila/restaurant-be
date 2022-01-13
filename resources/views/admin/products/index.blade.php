@@ -557,6 +557,11 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+<form action="{{ route('admin.products.deleteSelected') }}" id="deleteSelectedForm" method="POST" class="d-none">
+    @csrf
+    @method('DELETE')
+    <input type="text" name="ids" id="ids">
+</form>
 @endsection
 
 @section('script')
@@ -602,12 +607,22 @@
 </script>
 <script>
     const checkSelectedRows = () => {
+        const deleteSelectedForm = document.querySelector('#deleteSelectedForm');
+        const ids = document.querySelector('#deleteSelectedForm input#ids');
         let selectedRowsArr = []
         let selectedRows = document.querySelectorAll('tr.selected');
+
         selectedRows.forEach(row => {
             selectedRowsArr.push(row.dataset.productId);
         });
-        console.log(selectedRowsArr);
+        // console.log(selectedRowsArr);
+        if (selectedRowsArr.length == 0) {
+            alert('0 Row selected');
+        } else {
+            alert(selectedRowsArr);
+            ids.value = selectedRowsArr;
+            deleteSelectedForm.submit();
+        }
     }
 </script>
 @endsection
