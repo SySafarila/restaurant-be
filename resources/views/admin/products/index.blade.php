@@ -499,6 +499,7 @@
                                     <th>Price</th>
                                     <th>Qty</th>
                                     <th>Disc</th>
+                                    <th>Category</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -518,6 +519,7 @@
                                     <td>{{ $product->price }}</td>
                                     <td>{{ $product->quantity }}</td>
                                     <td>{{ $product->discount }}</td>
+                                    <td class="text-capitalize">{{ $product->category->name }}</td>
                                     <td class="align-items-start d-flex justify-content-center" style="gap: 1rem">
                                         <a href="{{ route('admin.products.edit', $product->id) }}"
                                             class="material-icons-round text-secondary">edit</a>
