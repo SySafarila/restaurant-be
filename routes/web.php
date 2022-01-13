@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 // admin
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(function () {
     Route::view('/', 'layouts/adminlte')->name('admin.index');
 
     // products

@@ -15,7 +15,11 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                @auth
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                @else
+                <a href="#" class="d-block">User</a>
+                @endauth
             </div>
         </div>
 
@@ -96,7 +100,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/logout" class="nav-link" id="logoutButton">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p>Logout</p>
                     </a>
@@ -107,3 +111,17 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+
+<form action="{{ route('logout') }}" method="post" id="logout" class="d-none">
+    @csrf
+</form>
+
+<script>
+    const logoutForm = document.getElementById('logout');
+    const logoutButton = document.getElementById('logoutButton');
+
+    logoutButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        logoutForm.submit();
+    })
+</script>
