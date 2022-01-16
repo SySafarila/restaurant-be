@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProductsController;
@@ -40,7 +41,11 @@ Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(f
     Route::patch('/products/{id}', [ProductsController::class, 'adminProductsUpdate'])->name('admin.products.update');
     Route::delete('/products/{id}', [ProductsController::class, 'adminProductsDelete'])->name('admin.products.delete');
 
+    // categories
     Route::get('/categories', [CategoriesController::class, 'adminCategoriesIndex'])->name('admin.categories.index');
+
+    // banners
+    Route::resource('/banners', BannerController::class);
 });
 
 require __DIR__ . '/auth.php';
