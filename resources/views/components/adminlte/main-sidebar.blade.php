@@ -16,9 +16,9 @@
             </div>
             <div class="info">
                 @auth
-                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                    <a href="#" class="d-block">{{ Auth::user()->name }}</a>
                 @else
-                <a href="#" class="d-block">User</a>
+                    <a href="#" class="d-block">User</a>
                 @endauth
             </div>
         </div>
@@ -51,7 +51,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.products.index') }}"
-                        class="nav-link {{ request()->routeIs('admin.products.index') ? 'active' : '' }}">
+                        class="nav-link {{ request()->routeIs(['admin.products.index', 'admin.products.create']) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             Products
