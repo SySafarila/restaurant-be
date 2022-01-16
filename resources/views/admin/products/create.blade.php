@@ -49,9 +49,9 @@
                     </div>
                     <div class="form-group grow">
                         <label class="text-capitalize" for="category">category *</label>
-                        <select required class="form-control capitalize" name="category_id">
+                        <select required class="form-control text-capitalize" name="category_id">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}" class="text-capitalize">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
