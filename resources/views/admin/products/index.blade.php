@@ -26,8 +26,9 @@
         </div>
         @endif
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="align-items-center col-sm-6 d-flex">
                 <h1>Products</h1>
+                <a href="{{ route('admin.products.create') }}" class="material-icons-round">add</a>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">

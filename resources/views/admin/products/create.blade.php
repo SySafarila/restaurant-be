@@ -56,15 +56,27 @@
                         </select>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row gap-2">
-                    <div class="form-group">
-                        <label class="text-capitalize" for="cover">cover *</label>
-                        <input required type="file" name="cover" id="cover" class="w-100" accept="image/*">
+                <div class="d-flex flex-column mb-3" style="gap: 1rem">
+                    <div class="">
+                        <label for="cover">Cover *</label>
+                        <div class="custom-file">
+                            <input type="file" name="cover" class="custom-file-input" id="exampleInputFile"
+                                accept="image/*">
+                            <label class="custom-file-label" for="exampleInputFile"></label>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label class="text-capitalize" for="additionalImages">additional images</label>
                         <input type="file" name="additionalImages[]" id="additionalImages" class="w-100"
                             accept="image/*" multiple>
+                    </div> --}}
+                    <div class="">
+                        <label class="text-capitalize" for="additionalImages">additional images</label>
+                        <div class="custom-file">
+                            <input type="file" name="additionalImages[]" class="custom-file-input" id="additionalImages"
+                                accept="image/*">
+                            <label class="custom-file-label" for="exampleInputFile"></label>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success">Create</button>
@@ -74,4 +86,10 @@
 @endsection
 
 @section('script')
+    <script src="{{ asset('adminLte/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
+        });
+    </script>
 @endsection
