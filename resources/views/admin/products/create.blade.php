@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <div class="content py-3">
+    <section class="content-header">
         <div class="container-fluid">
             @if (session('status'))
                 <div class="alert alert-success alert-dismissible">
@@ -15,11 +15,23 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <div class="flex gap-2 items-center">
-                <h2 class="text-2xl font-semibold">Create Product</h2>
-                {{-- <a href="{{ route('admin.products.create') }}"
-                class="material-icons-round text-sky-500 hover:text-sky-600">add</a> --}}
+            <div class="row mb-2">
+                <div class="align-items-center col-sm-6 d-flex">
+                    <h1>Create Product</h1>
+                    {{-- <a href="{{ route('admin.products.create') }}" class="material-icons-round">add</a> --}}
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Products</a></li>
+                        <li class="breadcrumb-item active">Create</li>
+                    </ol>
+                </div>
             </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <div class="content">
+        <div class="container-fluid">
             <form action="{{ route('admin.products.store') }}" method="post" enctype="multipart/form-data"
                 class="flex flex-col gap-3">
                 @csrf
@@ -51,7 +63,8 @@
                         <label class="text-capitalize" for="category">category *</label>
                         <select required class="form-control text-capitalize" name="category_id">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" class="text-capitalize">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}" class="text-capitalize">{{ $category->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -79,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success">Create</button>
+                <button type="submit" class="btn btn-success mb-3">Create</button>
             </form>
         </div>
     </div>
