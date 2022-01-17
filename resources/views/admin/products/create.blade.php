@@ -74,7 +74,7 @@
                         <label class="text-capitalize" for="additionalImages">additional images</label>
                         <div class="custom-file">
                             <input type="file" name="additionalImages[]" class="custom-file-input" id="additionalImages"
-                                accept="image/*">
+                                accept="image/*" multiple>
                             <label class="custom-file-label" for="exampleInputFile"></label>
                         </div>
                     </div>
