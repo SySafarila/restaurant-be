@@ -19,7 +19,7 @@ class BannerController extends Controller
         $banners = Banner::latest()->get();
         $n = 1;
 
-        return view('admin.banners.index', compact('banners','n'));
+        return view('admin.banners.index', compact('banners', 'n'));
     }
 
     /**
@@ -102,7 +102,7 @@ class BannerController extends Controller
         if ($request->hasFile('image')) {
             // $image = ProductImage::find($imageId);
             $imgDir = explode('/', $banner->path)[1];
-            $storageFullPath = 'public/' . $imgDir. '/' . $banner->image;
+            $storageFullPath = 'public/' . $imgDir . '/' . $banner->image;
 
             if (Storage::disk('local')->exists($storageFullPath)) {
                 Storage::disk('local')->delete($storageFullPath);
@@ -133,8 +133,8 @@ class BannerController extends Controller
     {
         $banner = Banner::findOrFail($id);
 
-        if (Storage::disk('local')->exists('public/banners/'.$banner->image)) {
-            Storage::disk('local')->delete('public/banners/'.$banner->image);
+        if (Storage::disk('local')->exists('public/banners/' . $banner->image)) {
+            Storage::disk('local')->delete('public/banners/' . $banner->image);
         }
 
         $banner->delete();
