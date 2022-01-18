@@ -51,8 +51,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.products.index') }}"
-                        class="nav-link {{ request()->routeIs(['admin.products.index', 'admin.products.create']) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+                        class="nav-link {{ request()->routeIs(['admin.products.index', 'admin.products.create', 'admin.products.edit']) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-bread-slice"></i>
                         <p>
                             Products
                         </p>
@@ -60,8 +60,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.banners.index') }}"
-                        class="nav-link {{ request()->routeIs(['admin.banners.index']) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+                        class="nav-link {{ request()->routeIs(['admin.banners.index', 'admin.banners.create', 'admin.banners.edit']) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-photo-video"></i>
                         <p>
                             Banners
                         </p>

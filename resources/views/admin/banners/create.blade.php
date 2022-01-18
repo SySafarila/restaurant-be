@@ -23,7 +23,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Products</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.banners.index') }}">Banners</a></li>
                         <li class="breadcrumb-item active">Create</li>
                     </ol>
                 </div>
