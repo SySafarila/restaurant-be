@@ -32,24 +32,25 @@
     </section>
     <div class="content">
         <div class="container-fluid">
-            <form action="{{ route('admin.banners.store') }}" method="post" enctype="multipart/form-data"
+            <form action="{{ route('admin.banners.update', $banner->id) }}" method="post" enctype="multipart/form-data"
                 class="flex flex-col gap-3">
                 @csrf
+                @method('PATCH')
                 <div class="d-flex flex-column mb-3" style="gap: 1rem">
                     <div class="">
-                        <label for="image" class="text-capitalize">image *</label>
+                        <label for="image" class="text-capitalize">image</label>
                         <div class="custom-file">
                             <input type="file" name="image" class="custom-file-input" id="exampleInputFile"
-                                accept="image/*" required>
-                            <label class="custom-file-label" for="exampleInputFile"></label>
+                                accept="image/*">
+                            <label class="custom-file-label" for="exampleInputFile">{{ $banner->image }}</label>
                         </div>
                     </div>
                     <div class="">
                         <label for="description" class="text-capitalize">description *</label>
-                        <textarea name="description" id="description" rows="10" class="form-control" required></textarea>
+                        <textarea name="description" id="description" rows="10" class="form-control">{{ $banner->description }}</textarea>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success mb-3">Create</button>
+                <button type="submit" class="btn btn-success mb-3">Update</button>
             </form>
         </div>
     </div>

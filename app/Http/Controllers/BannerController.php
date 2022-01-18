@@ -79,7 +79,9 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        return Banner::findOrFail($id);
+        $banner = Banner::findOrFail($id);
+
+        return view('admin.banners.edit', compact('banner'));
     }
 
     /**
@@ -91,7 +93,34 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+
+        $banner->update([
+            'description' => $request->description
+        ]);
+
+        if ($request->hasFile('image')) {
+            // $image = ProductImage::find($imageId);
+            $imgDir = explode('/', $banner->path)[1];
+            $storageFullPath = 'public/' . $imgDir. '/' . $banner->image;
+
+            if (Storage::disk('local')->exists($storageFullPath)) {
+                Storage::disk('local')->delete($storageFullPath);
+            }
+
+            $randomString = Str::random(10);
+            $imgName = $randomString . str_replace(' ', '-', $request->file('image')->getClientOriginalName());
+            $dir = 'public/banners';
+
+            $banner->update([
+                'image' => $imgName,
+                'path' => 'storage/banners/',
+            ]);
+
+            $request->file('image')->storeAs($dir, $imgName);
+        }
+
+        return redirect()->route('admin.banners.index')->with('status', 'Banner updated !');
     }
 
     /**
