@@ -45,7 +45,15 @@ Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(f
     Route::get('/categories', [CategoriesController::class, 'adminCategoriesIndex'])->name('admin.categories.index');
 
     // banners
-    Route::resource('/banners', BannerController::class);
+    Route::resource('/banners', BannerController::class)->names([
+        'index' => 'admin.banners.index',
+        'create' => 'admin.banners.create',
+        'store' => 'admin.banners.store',
+        'show' => 'admin.banners.show',
+        'edit' => 'admin.banners.edit',
+        'update' => 'admin.banners.update',
+        'destroy' => 'admin.banners.destroy',
+    ]);
 });
 
 require __DIR__ . '/auth.php';

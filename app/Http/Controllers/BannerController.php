@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BannerController extends Controller
 {
@@ -15,8 +17,9 @@ class BannerController extends Controller
     public function index()
     {
         $banners = Banner::latest()->get();
+        $n = 1;
 
-        return view('admin.banners.index', compact('banners'));
+        return view('admin.banners.index', compact('banners','n'));
     }
 
     /**
@@ -37,7 +40,24 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => ['required', 'image'],
+            'description' => ['required', 'string']
+        ]);
+
+        $randomString = Str::random(10);
+        $imgName = $randomString . str_replace(' ', '-', $request->file('image')->getClientOriginalName());
+        $dir = 'public/banners';
+
+        Banner::create([
+            'description' => $request->description,
+            'image' => $imgName,
+            'path' => 'storage/banners/'
+        ]);
+
+        $request->file('image')->storeAs($dir, $imgName);
+
+        return redirect()->route('admin.banners.index')->with('status', 'Banner uploaded !');
     }
 
     /**
@@ -59,7 +79,7 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Banner::findOrFail($id);
     }
 
     /**
@@ -82,6 +102,14 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+
+        if (Storage::disk('local')->exists('public/banners/'.$banner->image)) {
+            Storage::disk('local')->delete('public/banners/'.$banner->image);
+        }
+
+        $banner->delete();
+
+        return redirect()->route('admin.banners.index')->with('status', 'Banner deleted !');
     }
 }

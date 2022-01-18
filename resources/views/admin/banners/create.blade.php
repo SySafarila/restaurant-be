@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.adminlte')
 
 @section('title', 'Admin')
 
@@ -6,67 +6,60 @@
 @endsection
 
 @section('content')
-<div class="p-5">
-    @if (session('status'))
-    <p class="bg-sky-200 text-sky-700 p-4 rounded-lg mb-5">{{ session('status') }}</p>
-    @endif
-    <div class="mb-5 flex items-center gap-2">
-        <h2 class="text-2xl font-semibold">Create Product</h2>
-        {{-- <a href="{{ route('admin.products.create') }}"
-            class="material-icons-round text-sky-500 hover:text-sky-600">add</a> --}}
+    <section class="content-header">
+        <div class="container-fluid">
+            @if (session('status'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    {{-- <h5><i class="icon fas fa-check"></i> Alert!</h5> --}}
+                    {{ session('status') }}
+                </div>
+            @endif
+            <div class="row mb-2">
+                <div class="align-items-center col-sm-6 d-flex">
+                    <h1>Create Product</h1>
+                    {{-- <a href="{{ route('admin.products.create') }}" class="material-icons-round">add</a> --}}
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Products</a></li>
+                        <li class="breadcrumb-item active">Create</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <div class="content">
+        <div class="container-fluid">
+            <form action="{{ route('admin.banners.store') }}" method="post" enctype="multipart/form-data"
+                class="flex flex-col gap-3">
+                @csrf
+                <div class="d-flex flex-column mb-3" style="gap: 1rem">
+                    <div class="">
+                        <label for="image" class="text-capitalize">image *</label>
+                        <div class="custom-file">
+                            <input type="file" name="image" class="custom-file-input" id="exampleInputFile"
+                                accept="image/*">
+                            <label class="custom-file-label" for="exampleInputFile"></label>
+                        </div>
+                    </div>
+                    <div class="">
+                        <label for="description" class="text-capitalize">description *</label>
+                        <textarea name="description" id="description" rows="10" class="form-control"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success mb-3">Create</button>
+            </form>
+        </div>
     </div>
-    <form action="{{ route('admin.products.store') }}" method="post" enctype="multipart/form-data" class="flex flex-col gap-3">
-        @csrf
-        <div class="flex flex-col gap-1">
-            <label class="capitalize" for="name">name *</label>
-            <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="text"
-                name="name" value="{{ old('name') }}">
-        </div>
-        <div class="flex flex-col gap-1">
-            <label class="capitalize" for="description">description *</label>
-            <textarea required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400"
-                name="description" rows="10">{{ old('description') }}</textarea>
-        </div>
-        <div class="flex flex-col md:flex-row gap-2">
-            <div class="flex flex-col gap-1 grow">
-                <label class="capitalize" for="quantity">quantity *</label>
-                <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="number"
-                    name="quantity" value="{{ old('quantity') }}">
-            </div>
-            <div class="flex flex-col gap-1 grow">
-                <label class="capitalize" for="price">price *</label>
-                <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="number"
-                    name="price" value="{{ old('price') }}">
-            </div>
-            <div class="flex flex-col gap-1 grow">
-                <label class="capitalize" for="discount">discount (%) *</label>
-                <input required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400" type="number"
-                    name="discount" value="{{ old('discount') }}">
-            </div>
-            <div class="flex flex-col gap-1 grow">
-                <label class="capitalize" for="category">category *</label>
-                <select required class="w-full border rounded focus:outline-none p-2 focus:border-sky-400 capitalize"
-                    name="category_id">
-                    {{-- @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach --}}
-                </select>
-            </div>
-        </div>
-        <div class="flex flex-col md:flex-row gap-2">
-            <div class="flex flex-col gap-1 grow">
-                <label class="capitalize" for="cover">cover *</label>
-                <input required type="file" name="cover" id="cover" class="w-full file:border-none file:p-2 file:rounded file:bg-sky-100 file:text-sky-700 hover:file:bg-sky-200 file:mr-3" accept="image/*">
-            </div>
-            <div class="flex flex-col gap-1 grow">
-                <label class="capitalize" for="additionalImages">additional images</label>
-                <input type="file" name="additionalImages[]" id="additionalImages" class="w-full file:border-none file:p-2 file:rounded file:bg-sky-100 file:text-sky-700 hover:file:bg-sky-200 file:mr-3" accept="image/*" multiple>
-            </div>
-        </div>
-        <button type="submit" class="px-2 py-1 bg-sky-500 hover:bg-sky-600 text-white rounded w-fit">Create</button>
-    </form>
-</div>
 @endsection
 
 @section('script')
+    <script src="{{ asset('adminLte/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
+        });
+    </script>
 @endsection

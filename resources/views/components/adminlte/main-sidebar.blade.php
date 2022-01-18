@@ -58,6 +58,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.banners.index') }}"
+                        class="nav-link {{ request()->routeIs(['admin.banners.index']) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Banners
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item">
                     <a href="pages/gallery.html" class="nav-link">
