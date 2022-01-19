@@ -146,7 +146,17 @@ class BannerController extends Controller
     public function massDelete(Request $request)
     {
         $arr = explode(',', $request->ids);
-        Banner::destroy($arr);
+
+        foreach ($arr as $data) {
+            $banner = Banner::findOrFail($data);
+            if (Storage::disk('local')->exists('public/banners/' . $banner->image)) {
+                Storage::disk('local')->delete('public/banners/' . $banner->image);
+            }
+            $banner->delete();
+        }
+
+        // Banner::destroy($arr);
+
         return redirect()->route('admin.banners.index')->with('status', 'Bulk delete success');
     }
 }
