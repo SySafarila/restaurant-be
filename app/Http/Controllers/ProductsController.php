@@ -114,7 +114,7 @@ class ProductsController extends Controller
             'description' => ['required', 'string'],
             'quantity' => ['required', 'numeric', 'digits_between:0,11'],
             'price' => ['required', 'numeric'],
-            'discount' => ['required', 'numeric','digits_between:0,11'],
+            'discount' => ['required', 'numeric', 'digits_between:0,11'],
             'category_id' => ['required', 'exists:categories,id'],
             'cover' => ['file', 'image', 'max:10000']
         ]);
@@ -132,7 +132,7 @@ class ProductsController extends Controller
         if ($request->hasFile('cover')) {
             // $image = ProductImage::find($imageId);
             $imgDir = explode('/', $product->coverPath)[1];
-            $storageFullPath = 'public/' . $imgDir. '/' . $product->cover;
+            $storageFullPath = 'public/' . $imgDir . '/' . $product->cover;
 
             if (Storage::disk('local')->exists($storageFullPath)) {
                 Storage::disk('local')->delete($storageFullPath);
@@ -156,13 +156,48 @@ class ProductsController extends Controller
     public function adminProductsDeleteSelected(Request $request)
     {
         $arr = explode(',', $request->ids);
-        Product::destroy($arr);
+
+        foreach ($arr as $data) {
+            $product = Product::findOrFail($data);
+            $productImages = $product->images;
+
+            if (Storage::disk('local')->exists('public/productCover/' . $product->cover)) {
+                Storage::disk('local')->delete('public/productCover/' . $product->cover);
+            }
+
+            foreach ($productImages as $image) {
+                if (Storage::disk('local')->exists('public/productImages/' . $image->name)) {
+                    Storage::disk('local')->delete('public/productImages/' . $image->name);
+                }
+                $image->delete();
+            }
+
+            $product->delete();
+        }
+
+        // Product::destroy($arr);
+
         return redirect()->route('admin.products.index')->with('status', 'Bulk delete success');
     }
 
     public function adminProductsDelete(Request $request, $id)
     {
-        Product::destroy($id);
+        $product = Product::find($id);
+        $productImages = $product->images;
+
+        if (Storage::disk('local')->exists('public/productCover/' . $product->cover)) {
+            Storage::disk('local')->delete('public/productCover/' . $product->cover);
+        }
+
+        foreach ($productImages as $image) {
+            if (Storage::disk('local')->exists('public/productImages/' . $image->name)) {
+                Storage::disk('local')->delete('public/productImages/' . $image->name);
+            }
+            $image->delete();
+        }
+
+        $product->delete();
+
         return redirect()->route('admin.products.index')->with('status', 'Delete success');
     }
 
@@ -179,7 +214,7 @@ class ProductsController extends Controller
             'description' => ['required', 'string'],
             'quantity' => ['required', 'numeric', 'digits_between:0,11'],
             'price' => ['required', 'numeric'],
-            'discount' => ['required', 'numeric','digits_between:0,11'],
+            'discount' => ['required', 'numeric', 'digits_between:0,11'],
             'category_id' => ['required', 'exists:categories,id'],
             'cover' => ['required', 'file', 'image', 'max:10000'],
             'additionalImages.*' => ['file', 'image', 'max:10000']
@@ -203,7 +238,7 @@ class ProductsController extends Controller
         $request->file('cover')->storeAs($dir, $imgName);
 
         if ($request->hasFile('additionalImages')) {
-            foreach ($request->file('additionalImages') as $image ) {
+            foreach ($request->file('additionalImages') as $image) {
                 $randomString = Str::random(10);
                 $imgName = $randomString . str_replace(' ', '-', $image->getClientOriginalName());
                 $dir = 'public/productImages';
@@ -236,7 +271,7 @@ class ProductsController extends Controller
     {
         $image = ProductImage::find($imageId);
         $imgDir = explode('/', $image->path)[1];
-        $storageFullPath = 'public/' . $imgDir. '/' . $image->name;
+        $storageFullPath = 'public/' . $imgDir . '/' . $image->name;
 
         if (Storage::disk('local')->exists($storageFullPath)) {
             Storage::disk('local')->delete($storageFullPath);
@@ -256,7 +291,7 @@ class ProductsController extends Controller
         $product = Product::find($id);
 
         if ($request->hasFile('additionalImages')) {
-            foreach ($request->file('additionalImages') as $image ) {
+            foreach ($request->file('additionalImages') as $image) {
                 $randomString = Str::random(10);
                 $imgName = $randomString . str_replace(' ', '-', $image->getClientOriginalName());
                 $dir = 'public/productImages';
