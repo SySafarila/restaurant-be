@@ -30,7 +30,6 @@ Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(f
     // products
     Route::get('/products', [ProductsController::class, 'adminProductsIndex'])->name('admin.products.index');
     Route::post('/products', [ProductsController::class, 'adminProductsStore'])->name('admin.products.store');
-    Route::delete('/products', [ProductsController::class, 'adminProductsDeleteSelected'])->name('admin.products.deleteSelected');
     Route::get('/products/create', [ProductsController::class, 'adminProductsCreate'])->name('admin.products.create');
     Route::get('/products/{id}/edit', [ProductsController::class, 'adminProductsEdit'])->name('admin.products.edit');
     Route::get('/products/{id}/photos-manager', [ProductsController::class, 'adminProductsPhotosManager'])->name('admin.products.photosManager');
@@ -52,6 +51,9 @@ Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(f
         'update' => 'admin.banners.update',
         'destroy' => 'admin.banners.destroy',
     ]);
+
+    // mass delete
+    Route::delete('/mass-delete/banners', [ProductsController::class, 'adminProductsDeleteSelected'])->name('admin.products.deleteSelected');
     Route::delete('/mass-delete/banners', [BannerController::class, 'massDelete'])->name('admin.banners.massdelete');
 });
 
