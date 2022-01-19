@@ -25,7 +25,8 @@ Route::redirect('/dashboard', '/admin');
 
 // admin
 Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(function () {
-    Route::view('/', 'layouts/adminlte')->name('admin.index');
+    // dashboard
+    Route::view('/', 'layouts.adminlte')->name('admin.index');
 
     // products
     Route::get('/products', [ProductsController::class, 'adminProductsIndex'])->name('admin.products.index');
@@ -42,18 +43,12 @@ Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(f
     Route::get('/categories', [CategoriesController::class, 'adminCategoriesIndex'])->name('admin.categories.index');
 
     // banners
-    Route::resource('/banners', BannerController::class)->names([
-        'index' => 'admin.banners.index',
-        'create' => 'admin.banners.create',
-        'store' => 'admin.banners.store',
-        'show' => 'admin.banners.show',
-        'edit' => 'admin.banners.edit',
-        'update' => 'admin.banners.update',
-        'destroy' => 'admin.banners.destroy',
-    ]);
+    Route::name('admin.')->group(function () {
+        Route::resource('/banners', BannerController::class);
+    });
 
     // mass delete
-    Route::delete('/mass-delete/banners', [ProductsController::class, 'adminProductsDeleteSelected'])->name('admin.products.deleteSelected');
+    Route::delete('/mass-delete/products', [ProductsController::class, 'adminProductsDeleteSelected'])->name('admin.products.deleteSelected');
     Route::delete('/mass-delete/banners', [BannerController::class, 'massDelete'])->name('admin.banners.massdelete');
 });
 
