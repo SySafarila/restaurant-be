@@ -21,9 +21,7 @@ Route::get('/', LandingPageController::class)->name('index');
 Route::get('/products/{name}/{id}', [ProductsController::class, 'show'])->name('product.show');
 Route::get('/categories/{category:name}', [CategoriesController::class, 'show'])->name('categories.show');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::redirect('/dashboard', '/admin');
 
 // admin
 Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(function () {
