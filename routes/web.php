@@ -52,6 +52,7 @@ Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(f
         'update' => 'admin.banners.update',
         'destroy' => 'admin.banners.destroy',
     ]);
+    Route::delete('/mass-delete/banners', [BannerController::class, 'massDelete'])->name('admin.banners.massdelete');
 });
 
 require __DIR__ . '/auth.php';

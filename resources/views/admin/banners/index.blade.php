@@ -107,7 +107,7 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-<form action="{{ route('admin.products.deleteSelected') }}" id="deleteSelectedForm" method="POST" class="d-none">
+<form action="{{ route('admin.banners.massdelete') }}" id="deleteSelectedForm" method="POST" class="d-none">
     @csrf
     @method('DELETE')
     <input type="text" name="ids" id="ids">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -140,5 +141,12 @@ class BannerController extends Controller
         $banner->delete();
 
         return redirect()->route('admin.banners.index')->with('status', 'Banner deleted !');
+    }
+
+    public function massDelete(Request $request)
+    {
+        $arr = explode(',', $request->ids);
+        Banner::destroy($arr);
+        return redirect()->route('admin.banners.index')->with('status', 'Bulk delete success');
     }
 }
