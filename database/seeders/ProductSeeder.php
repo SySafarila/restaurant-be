@@ -14,9 +14,10 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        $n = 1;
         for ($i = 0; $i < 15; $i++) {
             Product::create([
-                'name' => 'Product ' . $i,
+                'name' => 'Product ' . $n,
                 'description' => 'Congue pharetra parturient facilisi est semper sed sem dui ac. Laoreet letius turpis ligula pulvinar primis iaculis ac donec fringilla posuere pharetra. Natoque senectus felis
 
                 sed at id consectetuer. Dapibus molestie imperdiet fames taciti facilisi malesuada primis. Blandit commodo laoreet efficitur letius aliquet amet vitae at quam ad tellus. Mi felis suspendisse fusce pede tortor risus.',
@@ -27,10 +28,11 @@ class ProductSeeder extends Seeder
                 'discount' => 0,
                 'category_id' => 1
             ]);
+            $n++;
         }
         for ($i = 0; $i < 15; $i++) {
             Product::create([
-                'name' => 'Product ' . $i,
+                'name' => 'Product ' . $n,
                 'description' => 'Congue pharetra parturient facilisi est semper sed sem dui ac. Laoreet letius turpis ligula pulvinar primis iaculis ac donec fringilla posuere pharetra. Natoque senectus felis sed at id consectetuer. Dapibus molestie imperdiet fames taciti facilisi malesuada primis. Blandit commodo laoreet efficitur letius aliquet amet vitae at quam ad tellus. Mi felis suspendisse fusce pede tortor risus.',
                 'cover' => 'drink1.jpg',
                 'coverPath' => 'images/drinks/',
@@ -39,10 +41,11 @@ class ProductSeeder extends Seeder
                 'discount' => 0,
                 'category_id' => 2
             ]);
+            $n++;
         }
         for ($i = 0; $i < 15; $i++) {
             Product::create([
-                'name' => 'Product ' . $i,
+                'name' => 'Product ' . $n,
                 'description' => 'Congue pharetra parturient facilisi est semper sed sem dui ac. Laoreet letius turpis ligula pulvinar primis iaculis ac donec fringilla posuere pharetra. Natoque senectus felis sed at id consectetuer. Dapibus molestie imperdiet fames taciti facilisi malesuada primis. Blandit commodo laoreet efficitur letius aliquet amet vitae at quam ad tellus. Mi felis suspendisse fusce pede tortor risus.',
                 'cover' => '1.jpg',
                 'coverPath' => 'images/others/',
@@ -51,6 +54,7 @@ class ProductSeeder extends Seeder
                 'discount' => 0,
                 'category_id' => 3
             ]);
+            $n++;
         }
     }
 }
