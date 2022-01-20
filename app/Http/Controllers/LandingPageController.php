@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -20,6 +21,10 @@ class LandingPageController extends Controller
             $query->inRandomOrder()->limit(8);
         }])->get();
 
-        return view('landingPage', compact('categories'));
+        $banners = Banner::latest()->get();
+
+        // return $banners;
+
+        return view('landingPage', compact('categories', 'banners'));
     }
 }
