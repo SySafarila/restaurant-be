@@ -26,8 +26,7 @@
                 overflow-hidden
                 rounded-lg
                 w-full
-                h-[10rem]
-                xl:h-[15rem]
+                aspect-square
             ">
                     <img src="{{ asset($product->coverPath . $product->cover) }}" alt="{{ $product->name }}" class="
                     w-full
@@ -35,7 +34,7 @@
                     transition-all
                     ease-in-out
                     h-full
-                    object-contain
+                    object-cover
                 " />
                     @if ($product->discount > 0)
                     <div class="

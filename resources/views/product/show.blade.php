@@ -43,7 +43,7 @@
             <div class="splide" id="main-slider">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
+                        <li class="splide__slide rounded-lg overflow-hidden aspect-square relative">
                             <img src="{{ asset($product->coverPath . $product->cover) }}" class="
                     w-full h-full
                     hover:scale-[1.3]
@@ -52,7 +52,7 @@
                   " />
                         </li>
                         @foreach ($product->images as $image)
-                        <li class="splide__slide rounded-lg overflow-hidden h-[20rem] relative">
+                        <li class="splide__slide rounded-lg overflow-hidden aspect-square relative">
                             <img src="{{ asset($image->path . $image->name) }}" class="
                     w-full h-full
                     hover:scale-[1.3]
