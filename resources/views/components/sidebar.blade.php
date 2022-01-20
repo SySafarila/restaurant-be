@@ -49,6 +49,9 @@
                 "
             >
                 @auth
+                    @can('admin access')
+                        <a href="{{ route('admin.index') }}" class="px-4 hover:text-sky-500">Admin Panel</a>
+                    @endcan
                     <a href="#profile" class="px-4 hover:text-sky-500">Profile</a>
                     <a href="#logout" class="px-4 hover:text-sky-500">Logout</a>
                 @else
