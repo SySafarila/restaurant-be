@@ -19,6 +19,12 @@ In one line cmd :
 
 `composer install && cp .env.example .env && php artisan storage:link && php artisan key:generate && php artisan migrate:fresh --seed`
 
+Login Credentials :
+
+Email : super.admin@admin.com
+
+Password : password
+
 *Make sure that your XAMPP/Laragon is turned on
 
 ## About Laravel
