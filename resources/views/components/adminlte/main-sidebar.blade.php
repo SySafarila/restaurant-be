@@ -67,6 +67,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.categories.index') }}"
+                        class="nav-link {{ request()->routeIs(['admin.categories.index']) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-photo-video"></i>
+                        <p>
+                            Categories
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item">
                     <a href="pages/gallery.html" class="nav-link">

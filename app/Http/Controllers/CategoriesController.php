@@ -87,6 +87,6 @@ class CategoriesController extends Controller
 
     public function adminCategoriesIndex()
     {
-        return 'adminCategoriesIndex';
+        return view('admin.categories.index');
     }
 }
