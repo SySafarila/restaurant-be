@@ -53,9 +53,9 @@
                         <a href="{{ route('admin.index') }}" class="px-4 hover:text-sky-500">Admin Panel</a>
                     @endcan
                     <a href="#profile" class="px-4 hover:text-sky-500">Profile</a>
-                    <a href="#logout" class="px-4 hover:text-sky-500">Logout</a>
+                    <span class="px-4 hover:text-sky-500 cursor-pointer" id="logout">Logout</span>
                 @else
-                    <a href="#login" class="px-4 hover:text-sky-500">Login</a>
+                    <a href="{{ route('login') }}" class="px-4 hover:text-sky-500">Login</a>
                 @endauth
             </div>
         </li>

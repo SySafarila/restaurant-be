@@ -59,6 +59,11 @@
     @yield('content')
     {{-- @include('components.footer') --}}
     <x-footer />
+
+    {{-- logout --}}
+    <form action="{{ route('logout') }}" method="post" class="hidden" id="logoutForm">
+        @csrf
+    </form>
 </body>
 
 <script>
@@ -116,6 +121,19 @@
       items.addEventListener("click", (e) => {
         e.stopPropagation();
       });
+    });
+</script>
+
+<script>
+    const logouts = document.querySelectorAll('#logout');
+    const logoutForm = document.getElementById('logoutForm')
+
+    logouts.forEach(logout => {
+        logout.addEventListener('click', (e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            logoutForm.submit()
+        })
     });
 </script>
 

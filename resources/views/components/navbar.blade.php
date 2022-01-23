@@ -118,18 +118,6 @@
                             @endcan
                             <a href="#profile" class="px-4 hover:text-sky-500">Profile</a>
                             <span class="px-4 hover:text-sky-500 cursor-pointer" id="logout">Logout</span>
-                            <form action="{{ route('logout') }}" method="post" class="hidden" id="logoutForm">
-                                @csrf
-                            </form>
-                            <script>
-                                const logout = document.getElementById('logout')
-                                const logoutForm = document.getElementById('logoutForm')
-                                logout.addEventListener('click', (e) => {
-                                    e.preventDefault()
-                                    e.stopPropagation()
-                                    logoutForm.submit()
-                                })
-                            </script>
                         @else
                             <a href="{{ route('login') }}" class="px-4 hover:text-sky-500">Login</a>
                         @endauth
