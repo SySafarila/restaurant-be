@@ -109,6 +109,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-primary"></i>
+                        <p>Exit Admin Panel</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/logout" class="nav-link" id="logoutButton">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p>Logout</p>
