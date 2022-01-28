@@ -3,19 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\SendMail as SendEmail;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MailController extends Controller
 {
     public function sendMail(Request $request)
     {
-        $mail_data = [
-            'subject' => 'New message subject.'
-        ];
+        $users = User::get();
 
-        $job = (new SendEmail($mail_data))->delay(now()->addSeconds(10));
+        $n = 20;
 
-        dispatch($job);
+        foreach ($users as $user) {
+            $mail_data = [
+                'subject' => 'New message subject.',
+                'email' => $user->email
+            ];
+
+            $job = (new SendEmail($mail_data));
+
+            dispatch($job)->delay(now()->addSeconds($n));
+            $n = rand(20,40);
+            // SendEmail::dispatch($job)->delay(now()->addSeconds(30));
+        }
 
         dd('Job dispatched.');
     }

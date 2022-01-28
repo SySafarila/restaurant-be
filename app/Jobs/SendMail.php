@@ -36,18 +36,19 @@ class SendMail implements ShouldQueue
     {
         $users = User::get();
         $input['subject'] = $this->mail_data['subject'];
+        $input['email'] = $this->mail_data['email'];
 
-        foreach ($users as $user) {
-            $input['email'] = $user->email;
-            $input['name'] = $user->name;
+        // foreach ($users as $user) {
+            // $input['email'] = $user->email;
+            // $input['name'] = $user->name;
 
             Mail::send('mails.mail', array(
                 'h1' => 'x',
                 'body' => 'y'
             ), function($pesan) use($input){
-                $pesan->to($input['email'], $input['name'])->subject($input['subject']);
-                $pesan->from(env('MAIL_USERNAME','no.reply@mitrasistemsinergi.com'),'Bot mail Website');
+                $pesan->to($input['email'], $input['email'])->subject($input['subject']);
+                // $pesan->from(env('MAIL_USERNAME','no.reply@mitrasistemsinergi.com'),'Bot mail Website');
             });
-        }
+        // }
     }
 }

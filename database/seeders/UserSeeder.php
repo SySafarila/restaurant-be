@@ -17,20 +17,20 @@ class UserSeeder extends Seeder
     {
         $user = User::create([
             'name' => 'Super Admin',
-            'email' => 'super.admin@admin.com',
+            'email' => 'sysafarila.official@gmail.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now()
         ]);
 
         User::create([
             'name' => 'Super Admin',
-            'email' => 'super.admin2@admin.com',
+            'email' => 'sysafarila.dev@gmail.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now()
         ]);
         User::create([
             'name' => 'Super Admin',
-            'email' => 'super.admin3@admin.com',
+            'email' => 'sysafarila.official.2@gmail.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now()
         ]);
