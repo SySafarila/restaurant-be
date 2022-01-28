@@ -3,6 +3,7 @@
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,5 +52,7 @@ Route::prefix('admin')->middleware(['auth', 'permission:admin access'])->group(f
     Route::delete('/mass-delete/products', [ProductsController::class, 'adminProductsDeleteSelected'])->name('admin.products.deleteSelected');
     Route::delete('/mass-delete/banners', [BannerController::class, 'massDelete'])->name('admin.banners.massdelete');
 });
+
+Route::get('send-mail', [MailController::class, 'sendMail'])->name('sendMail');
 
 require __DIR__ . '/auth.php';
