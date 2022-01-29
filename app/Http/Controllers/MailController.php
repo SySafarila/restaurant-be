@@ -20,9 +20,11 @@ class MailController extends Controller
                 'email' => $user->email
             ];
 
+            // usleep(20000);
+            // sleep(30);
             $job = (new SendEmail($mail_data));
 
-            dispatch($job)->delay(now()->addSeconds($n));
+            dispatch($job)->delay(now()->addSeconds(2));
             $n = rand(20,40);
             // SendEmail::dispatch($job)->delay(now()->addSeconds(30));
         }

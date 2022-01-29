@@ -34,7 +34,9 @@ class SendMail implements ShouldQueue
      */
     public function handle()
     {
-        $users = User::get();
+        // $users = User::get();
+        // usleep(20000);
+        sleep(30);
         $input['subject'] = $this->mail_data['subject'];
         $input['email'] = $this->mail_data['email'];
 
