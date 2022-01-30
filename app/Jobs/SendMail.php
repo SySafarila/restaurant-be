@@ -16,6 +16,7 @@ class SendMail implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $mail_data;
+    public $timeout = 120;
 
     /**
      * Create a new job instance.
@@ -34,23 +35,16 @@ class SendMail implements ShouldQueue
      */
     public function handle()
     {
-        // $users = User::get();
-        // usleep(20000);
         sleep(30);
         $input['subject'] = $this->mail_data['subject'];
         $input['email'] = $this->mail_data['email'];
 
-        // foreach ($users as $user) {
-            // $input['email'] = $user->email;
-            // $input['name'] = $user->name;
 
-            Mail::send('mails.mail', array(
-                'h1' => 'x',
-                'body' => 'y'
-            ), function($pesan) use($input){
-                $pesan->to($input['email'], $input['email'])->subject($input['subject']);
-                // $pesan->from(env('MAIL_USERNAME','no.reply@mitrasistemsinergi.com'),'Bot mail Website');
-            });
-        // }
+        Mail::send('mails.mail', array(
+            'h1' => 'x',
+            'body' => 'y'
+        ), function ($pesan) use ($input) {
+            $pesan->to($input['email'], $input['email'])->subject($input['subject']);
+        });
     }
 }

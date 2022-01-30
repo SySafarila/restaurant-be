@@ -8,11 +8,9 @@ use Illuminate\Http\Request;
 
 class MailController extends Controller
 {
-    public function sendMail(Request $request)
+    public function sendMail()
     {
         $users = User::get();
-
-        $n = 20;
 
         foreach ($users as $user) {
             $mail_data = [
@@ -20,13 +18,7 @@ class MailController extends Controller
                 'email' => $user->email
             ];
 
-            // usleep(20000);
-            // sleep(30);
-            $job = (new SendEmail($mail_data));
-
-            dispatch($job)->delay(now()->addSeconds(2));
-            $n = rand(20,40);
-            // SendEmail::dispatch($job)->delay(now()->addSeconds(30));
+            SendEmail::dispatch($mail_data)->delay(now()->addSeconds(30));
         }
 
         dd('Job dispatched.');
